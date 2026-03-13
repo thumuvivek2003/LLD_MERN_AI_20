@@ -1,0 +1,32 @@
+
+{
+  "name": "lld-portfolio",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.0.0",
+    "axios": "^1.6.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "jsonwebtoken": "^9.0.0",
+    "bcrypt": "^5.1.0"
+  },
+  "scripts": {
+    "p1": "node run-project p1-notes-system",
+    "p2": "node run-project p2-auth-system",
+    "p3": "node run-project p3-url-shortener",
+    "p4": "node run-project p4-file-storage-system",
+    "p5": "node run-project p5-trello-system",
+    "p6": "node run-project p6-notification-system",
+    "p7": "node run-project p7-chat-system",
+    "p8": "node run-project p8-rate-limiter",
+    "p9": "node run-project p9-parking-lot",
+    "p10": "node run-project p10-inventory-system",
+    "p11": "node run-project p11-auction-system",
+    "p12": "node run-project p12-ride-sharing",
+    "p13": "node run-project p13-payment-system",
+    "p14": "node run-project p14-job-queue-system",
+    "p15": "node run-project p15-multi-tenant-saas"
+  }
+}
