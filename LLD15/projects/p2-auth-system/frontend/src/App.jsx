@@ -1,12 +1,13 @@
+import React from "react";
+import AppRoutes from "./routes/AppRoutes";
+import AuthProvider from "./context/AuthContext";
 
-import React from "react"
-
-export default function App() {
-
+function App() {
   return (
-    <div style={{padding:"40px"}}>
-        <h1>Hello! This is p2-auth-system frontend</h1>
-    </div>
-  )
-
+    <AuthProvider>
+      <AppRoutes />
+    </AuthProvider>
+  );
 }
+
+export default App;

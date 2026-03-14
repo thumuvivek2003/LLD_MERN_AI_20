@@ -1,6 +1,6 @@
 import { spawn } from "child_process"
 
-const project = 'p1-notes-system' //process.argv[2]
+const project = process.argv[2] 
 
 if (!project) {
     console.log("Usage: node run-project p1-notes-system")
