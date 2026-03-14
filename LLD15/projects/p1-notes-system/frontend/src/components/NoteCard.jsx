@@ -5,27 +5,31 @@ const NoteCard = ({ note, onDelete }) => {
   const navigate = useNavigate();
 
   return (
-    <div style={styles.card}>
-      <h3>{note.title}</h3>
-      <p>{note.content}</p>
+    <article className="note-card">
+      <div className="note-card__header">
+        <h3 className="note-card__title">{note.title}</h3>
+      </div>
 
-      <button onClick={() => navigate(`/edit/${note._id}`)}>
-        Edit
-      </button>
+      <p className="note-card__content">{note.content}</p>
 
-      <button onClick={() => onDelete(note._id)}>
-        Delete
-      </button>
-    </div>
+      <footer className="note-card__footer">
+        <div className="note-card__actions">
+          <button
+            className="btn btn--ghost"
+            onClick={() => navigate(`/edit/${note._id}`)}
+          >
+            ✏ Edit
+          </button>
+          <button
+            className="btn btn--danger"
+            onClick={() => onDelete(note._id)}
+          >
+            ✕ Delete
+          </button>
+        </div>
+      </footer>
+    </article>
   );
-};
-
-const styles = {
-  card: {
-    border: "1px solid #ddd",
-    padding: "15px",
-    marginBottom: "10px"
-  }
 };
 
 export default NoteCard;

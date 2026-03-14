@@ -2,45 +2,54 @@ import React, { useState } from "react";
 import { createNote } from "../services/noteService";
 
 const CreateNoteForm = ({ refreshNotes }) => {
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
 
-    const [title, setTitle] = useState("");
-    const [content, setContent] = useState("");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!title.trim()) return;
+    await createNote({ title, content });
+    setTitle("");
+    setContent("");
+    refreshNotes();
+  };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+  return (
+    <div className="note-form">
+      <h2 className="note-form__title">New Note</h2>
 
-        await createNote({ title, content });
+      <div className="form-group">
+        <label className="form-label" htmlFor="note-title">
+          Title
+        </label>
+        <input
+          id="note-title"
+          className="form-input"
+          type="text"
+          placeholder="Give your note a title…"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+      </div>
 
-        setTitle("");
-        setContent("");
+      <div className="form-group">
+        <label className="form-label" htmlFor="note-content">
+          Content
+        </label>
+        <textarea
+          id="note-content"
+          className="form-textarea"
+          placeholder="Write something…"
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+        />
+      </div>
 
-        refreshNotes();
-    };
-
-    return (
-        <form onSubmit={handleSubmit} style={{marginTop:8}}>
-
-            <input
-                type="text"
-                placeholder="Title"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                required
-            />
-
-            <textarea
-                placeholder="Content"
-                value={content}
-                onChange={(e) => setContent(e.target.value)}
-                required
-            />
-
-            <button type="submit">
-                Create Note
-            </button>
-
-        </form>
-    );
+      <button className="btn btn--primary btn--full" onClick={handleSubmit}>
+        + Add Note
+      </button>
+    </div>
+  );
 };
 
 export default CreateNoteForm;
