@@ -44,33 +44,52 @@ const EditNoteForm = () => {
 
     };
 
-    return (
-        <form onSubmit={handleSubmit}>
+   return (
+  <form className="note-form" onSubmit={handleSubmit}>
+    <h2 className="note-form__title">Update Note</h2>
 
-            {error && (
-                <div style={{ color: "red", marginBottom: "10px" }}>
-                    {error}
-                </div>
-            )}
+    {error && (
+      <div style={{ color: "red", marginBottom: "10px" }}>
+        {error}
+      </div>
+    )}
 
-            <input
-                required
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-            />
+    <div className="form-group">
+      <label className="form-label" htmlFor="note-title">
+        Title
+      </label>
 
-            <textarea
-                required
-                value={content}
-                onChange={(e) => setContent(e.target.value)}
-            />
+      <input
+        id="note-title"
+        className="form-input"
+        type="text"
+        placeholder="Give your note a title…"
+        required
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+      />
+    </div>
 
-            <button type="submit">
-                Update Note
-            </button>
+    <div className="form-group">
+      <label className="form-label" htmlFor="note-content">
+        Content
+      </label>
 
-        </form>
-    );
+      <textarea
+        id="note-content"
+        className="form-textarea"
+        placeholder="Write something…"
+        required
+        value={content}
+        onChange={(e) => setContent(e.target.value)}
+      />
+    </div>
+
+    <button type="submit" className="btn btn--primary btn--full">
+      Update Note
+    </button>
+  </form>
+);
 };
 
 export default EditNoteForm;
