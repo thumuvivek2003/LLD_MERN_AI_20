@@ -1,12 +1,28 @@
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import './styles/main.css'
 
-import React from "react"
+import Navbar from "./components/Navbar";
+import NotesPage from "./pages/NotesPage";
+import EditNotePage from "./pages/EditNotePage";
 
-export default function App() {
+function App() {
 
   return (
-    <div style={{padding:"40px"}}>
-        <h1>Hello! This is p1-notes-system frontend</h1>
-    </div>
-  )
+    <BrowserRouter>
 
+      <Navbar />
+
+      <Routes>
+
+        <Route path="/" element={<NotesPage />} />
+
+        <Route path="/edit/:id" element={<EditNotePage />} />
+
+      </Routes>
+
+    </BrowserRouter>
+  );
 }
+
+export default App;

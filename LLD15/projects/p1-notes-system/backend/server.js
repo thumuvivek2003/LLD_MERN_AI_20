@@ -1,9 +1,10 @@
 
-import express from "express"
+import { connectDB } from "../../../shared/database/mongo.js"
+import app from './src/app.js';
 
 export function startServer() {
-    const app = express()
     const PORT = 5001
+    connectDB("p1-notes-system")
 
     app.get("/", (req, res) => {
         res.send("p1-notes-system backend running")
