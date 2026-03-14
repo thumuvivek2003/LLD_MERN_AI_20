@@ -33,49 +33,80 @@ const UserForm = ({ user, onSubmit, onClose }) => {
     };
 
     return (
-        <div>
-            <h3>{user ? "Edit User" : "Add User"}</h3>
+        <div className="modal-overlay">
+            <div className="modal">
+                <div className="modal__header">
+                    <div>
+                        <p className="auth-form__eyebrow">{user ? "Editing user" : "New user"}</p>
+                        <h3 className="modal__title">{user ? "Edit User" : "Add User"}</h3>
+                    </div>
+                    <button className="modal__close btn btn--ghost" onClick={onClose} aria-label="Close">✕</button>
+                </div>
 
-            <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} noValidate>
+                    <div className="form-group">
+                        <label className="form-label" htmlFor="uf-name">Full Name</label>
+                        <input
+                            id="uf-name"
+                            className="form-input"
+                            name="name"
+                            type="text"
+                            placeholder="Jane Doe"
+                            value={form.name}
+                            onChange={handleChange}
+                        />
+                    </div>
 
-                <input
-                    name="name"
-                    placeholder="Name"
-                    value={form.name}
-                    onChange={handleChange}
-                />
+                    <div className="form-group">
+                        <label className="form-label" htmlFor="uf-email">Email</label>
+                        <input
+                            id="uf-email"
+                            className="form-input"
+                            name="email"
+                            type="email"
+                            placeholder="jane@example.com"
+                            value={form.email}
+                            onChange={handleChange}
+                        />
+                    </div>
 
-                <input
-                    name="email"
-                    placeholder="Email"
-                    value={form.email}
-                    onChange={handleChange}
-                />
+                    <div className="form-group">
+                        <label className="form-label" htmlFor="uf-password">Password</label>
+                        <input
+                            id="uf-password"
+                            className="form-input"
+                            name="password"
+                            type="password"
+                            placeholder={user ? "Leave blank to keep current" : "Min. 8 characters"}
+                            value={form.password}
+                            onChange={handleChange}
+                        />
+                    </div>
 
-                <input
-                    name="password"
-                    placeholder="Password"
-                    type="password"
-                    value={form.password}
-                    onChange={handleChange}
-                />
+                    <div className="form-group">
+                        <label className="form-label" htmlFor="uf-role">Role</label>
+                        <select
+                            id="uf-role"
+                            className="form-select"
+                            name="role"
+                            value={form.role}
+                            onChange={handleChange}
+                        >
+                            <option value="user">User</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                    </div>
 
-                <select
-                    name="role"
-                    value={form.role}
-                    onChange={handleChange}
-                >
-                    <option value="user">User</option>
-                    <option value="admin">Admin</option>
-                </select>
-
-                <button type="submit">Save</button>
-
-                <button type="button" onClick={onClose}>
-                    Cancel
-                </button>
-
-            </form>
+                    <div className="modal__actions">
+                        <button type="button" className="btn btn--ghost" onClick={onClose}>
+                            Cancel
+                        </button>
+                        <button type="submit" className="btn btn--primary">
+                            {user ? "Save Changes" : "Add User"}
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
     );
 };

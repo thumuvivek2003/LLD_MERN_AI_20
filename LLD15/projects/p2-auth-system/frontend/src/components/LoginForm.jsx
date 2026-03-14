@@ -46,29 +46,53 @@ const LoginForm = () => {
     };
 
     return (
-        <>
+        <div className="auth-form">
+            <div className="auth-form__header">
+                <p className="auth-form__eyebrow">Welcome back</p>
+                <h2 className="auth-form__title">Sign in to Nota</h2>
+            </div>
+
             {error && (
                 <div className="form-error">
+                    <span className="form-error__icon">⚠</span>
                     {error}
                 </div>
             )}
-            <form onSubmit={handleSubmit}>
-                <input
-                    name="email"
-                    placeholder="Email"
-                    onChange={handleChange}
-                />
 
-                <input
-                    name="password"
-                    type="password"
-                    placeholder="Password"
-                    onChange={handleChange}
-                />
+            <form onSubmit={handleSubmit} noValidate>
+                <div className="form-group">
+                    <label className="form-label" htmlFor="login-email">Email</label>
+                    <input
+                        id="login-email"
+                        className="form-input"
+                        name="email"
+                        type="email"
+                        placeholder="you@example.com"
+                        value={form?.email ?? ""}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
 
-                <button type="submit">Login</button>
+                <div className="form-group">
+                    <label className="form-label" htmlFor="login-password">Password</label>
+                    <input
+                        id="login-password"
+                        className="form-input"
+                        name="password"
+                        type="password"
+                        placeholder="••••••••"
+                        value={form?.password ?? ""}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+
+                <button type="submit" className="btn btn--primary btn--full">
+                    Sign In →
+                </button>
             </form>
-        </>
+        </div>
     );
 };
 

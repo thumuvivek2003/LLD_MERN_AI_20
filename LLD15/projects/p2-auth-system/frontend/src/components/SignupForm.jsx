@@ -41,33 +41,67 @@ const SignupForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            {error && <p style={{ color: "red" }}>{error}</p>}
+        <div className="auth-form">
+            <div className="auth-form__header">
+                <p className="auth-form__eyebrow">Get started free</p>
+                <h2 className="auth-form__title">Create your account</h2>
+            </div>
 
-            <input
-                name="name"
-                placeholder="Name"
-                value={form.name}
-                onChange={handleChange}
-            />
+            {error && (
+                <div className="form-error">
+                    <span className="form-error__icon">⚠</span>
+                    {error}
+                </div>
+            )}
 
-            <input
-                name="email"
-                placeholder="Email"
-                value={form.email}
-                onChange={handleChange}
-            />
+            <form onSubmit={handleSubmit} noValidate>
+                <div className="form-group">
+                    <label className="form-label" htmlFor="signup-name">Full Name</label>
+                    <input
+                        id="signup-name"
+                        className="form-input"
+                        name="name"
+                        type="text"
+                        placeholder="Jane Doe"
+                        value={form.name}
+                        required
+                        onChange={handleChange}
+                    />
+                </div>
 
-            <input
-                name="password"
-                type="password"
-                placeholder="Password"
-                value={form.password}
-                onChange={handleChange}
-            />
+                <div className="form-group">
+                    <label className="form-label" htmlFor="signup-email">Email</label>
+                    <input
+                        id="signup-email"
+                        className="form-input"
+                        name="email"
+                        type="email"
+                        placeholder="you@example.com"
+                        value={form.email}
+                        required
+                        onChange={handleChange}
+                    />
+                </div>
 
-            <button type="submit">Signup</button>
-        </form>
+                <div className="form-group">
+                    <label className="form-label" htmlFor="signup-password">Password</label>
+                    <input
+                        id="signup-password"
+                        className="form-input"
+                        name="password"
+                        type="password"
+                        placeholder="Min. 8 characters"
+                        value={form.password}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+
+                <button type="submit" className="btn btn--primary btn--full">
+                    Create Account →
+                </button>
+            </form>
+        </div>
     );
 };
 
