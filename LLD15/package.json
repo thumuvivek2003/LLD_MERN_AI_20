@@ -10,7 +10,8 @@
     "express": "^4.22.1",
     "express-rate-limit": "^8.3.1",
     "jsonwebtoken": "^9.0.3",
-    "mongoose": "^7.8.9"
+    "mongoose": "^7.8.9",
+    "multer": "^2.1.1"
   },
   "scripts": {
     "p1": "node run-project p1-notes-system",

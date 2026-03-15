@@ -16,7 +16,7 @@ console.log(`Starting project: ${project}`)
 // import(`./projects/${project}/backend/server.js`)
 //     .then(module => module.startServer())
 //     .catch(err => console.error(err))
-const backend = spawn("node", [backendPath], {
+const backend = spawn("nodemon", [backendPath], {
     stdio: "inherit",
 })
 
