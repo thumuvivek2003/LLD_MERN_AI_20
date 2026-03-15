@@ -1,34 +1,43 @@
 import URLForm from "../components/URLForm";
 import ShortURLResult from "../components/ShortURLResult";
-import { useShortenURL } from "../hooks/useShortenURL";
 import AnalyticsPage from "./AnalyticsPage";
+import { useShortenURL } from "../hooks/useShortenURL";
 
 export default function HomePage() {
-
-  const {
-    shortURL,
-    loading,
-    error,
-    generateShortURL
-  } = useShortenURL();
+  const { shortURL, loading, error, generateShortURL } = useShortenURL();
 
   return (
-    <div style={{ padding: "40px" }}>
+    <div className="page-wrapper">
+      {/* Header */}
+      <header className="page-header">
+        <div className="badge badge--accent">URL Shortener</div>
+        <h1 style={{ marginTop: "var(--space-4)" }}>
+          Shorten any link,<br />share with confidence.
+        </h1>
+        <p style={{ marginTop: "var(--space-3)" }}>
+          Paste a long URL and get a clean, trackable short link instantly.
+        </p>
+      </header>
 
-      <h1>URL Shortener</h1>
-
+      {/* Form */}
       <URLForm onSubmit={generateShortURL} />
 
-      {loading && <p>Generating...</p>}
-
-      {error && <p>{error}</p>}
-
-      {shortURL && (
-        <ShortURLResult shortURL={shortURL} />
+      {/* Status feedback */}
+      {loading && (
+        <div className="status status--loading">Generating your link…</div>
+      )}
+      {error && (
+        <div className="status status--error">{error}</div>
       )}
 
-      <AnalyticsPage />
+      {/* Result */}
+      {shortURL && <ShortURLResult shortURL={shortURL} />}
 
+      {/* Divider */}
+      <div className="divider" />
+
+      {/* Analytics */}
+      <AnalyticsPage />
     </div>
   );
 }

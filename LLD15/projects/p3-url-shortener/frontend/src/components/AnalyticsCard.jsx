@@ -1,15 +1,19 @@
+const ICON_MAP = {
+  "Total Clicks": "⚡",
+  "Mobile Users": "📱",
+  "Desktop Users": "🖥",
+};
+
 export default function AnalyticsCard({ title, value }) {
+  const icon = ICON_MAP[title] ?? "📊";
 
   return (
-    <div style={{
-      border: "1px solid #ddd",
-      padding: "10px",
-      margin: "10px"
-    }}>
-
-      <h3>{title}</h3>
-      <p>{value}</p>
-
+    <div className="analytics-card">
+      <div className="analytics-card__icon" aria-hidden="true">
+        {icon}
+      </div>
+      <p className="analytics-card__label">{title}</p>
+      <p className="analytics-card__value">{value.toLocaleString()}</p>
     </div>
   );
 }
