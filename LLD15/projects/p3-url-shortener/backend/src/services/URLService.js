@@ -4,6 +4,8 @@ import {
   createURL,
   findByShortCode
 } from "../repositories/URLRepository.js";
+import redisClient from "../config/redisClient.js";
+import { analyticsQueue } from "../queues/analyticsQueue.js";
 
 export const createShortURL = async (longUrl, expiresAt = null) => {
   if (!isValidURL(longUrl)) {
@@ -27,16 +29,27 @@ export const createShortURL = async (longUrl, expiresAt = null) => {
   return url;
 };
 
+
 export const getOriginalURL = async (shortCode) => {
-  const url = await findByShortCode(shortCode);
-
-  if (!url) {
-    throw new Error("Short URL not found");
+  const cached = await redisClient.get(shortCode);
+  if (cached) {
+    return { longUrl: cached };
   }
-
+  const url = await findByShortCode(shortCode);
+  if (!url) throw new Error("URL not found");
   if (url.expiresAt && new Date() > url.expiresAt) {
     throw new Error("Link expired");
   }
-
+  await redisClient.set(shortCode, url.longUrl);
   return url;
+};
+
+export const handleRedirect = async ({ shortCode, ip, userAgent }) => {
+  const url = await getOriginalURL(shortCode);
+  // await analyticsQueue.add("trackClick", {
+  //   shortCode,
+  //   ip,
+  //   userAgent
+  // });
+  return url.longUrl;
 };

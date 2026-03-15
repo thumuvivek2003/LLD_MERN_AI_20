@@ -1,6 +1,4 @@
-import { createShortURL,getOriginalURL } from "../services/URLService.js";
-import { recordClick } from "../services/AnalyticsService.js";
-
+import { createShortURL, handleRedirect } from "../services/URLService.js";
 export const createShortUrl = async (req, res) => {
   try {
     const { longUrl, expiresAt } = req.body;
@@ -19,14 +17,12 @@ export const createShortUrl = async (req, res) => {
 
 export const redirectUrl = async (req, res) => {
   try {
-    const { shortCode } = req.params;
-
-    const url = await getOriginalURL(shortCode);
-
-    await recordClick(shortCode);
-
-    return res.redirect(url.longUrl);
-
+    const longUrl = await handleRedirect({
+      shortCode: req.params.shortCode,
+      ip: req.ip,
+      userAgent: req.headers["user-agent"]
+    });
+    return res.redirect(longUrl);
   } catch (err) {
     res.status(404).json({ error: err.message });
   }
