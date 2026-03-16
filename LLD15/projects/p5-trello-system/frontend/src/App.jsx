@@ -1,12 +1,16 @@
+import { BrowserRouter } from "react-router-dom";
+import Routes from "./routes";
+import { AuthProvider } from "../context/AuthContext";
+import "../styles/global.css";
 
-import React from "react"
-
-export default function App() {
-
+function App() {
   return (
-    <div style={{padding:"40px"}}>
-        <h1>Hello! This is p5-trello-system frontend</h1>
-    </div>
-  )
-
+    <BrowserRouter>
+      <AuthProvider>
+        <Routes />
+      </AuthProvider>
+    </BrowserRouter>
+  );
 }
+
+export default App;
