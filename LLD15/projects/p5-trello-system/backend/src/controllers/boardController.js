@@ -44,3 +44,9 @@ export const deleteBoard = async (req, res) => {
 
   res.json({ message: "Board deleted" });
 };
+
+
+export const getBoardListCards = async (req, res) => {
+  const data = await boardService.getBoardListCards(req.params.id);
+  res.json(data);
+};

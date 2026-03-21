@@ -15,3 +15,15 @@ export const updateCard = (id, data) => {
 export const deleteCard = (id) => {
   return Card.findByIdAndDelete(id);
 };
+
+
+export const getCardsByListIds = (listIds) => {
+  return Card.find({
+    listId: { $in: listIds }
+  })
+    .sort({ position: 1 })
+    .lean();
+};
+
+
+

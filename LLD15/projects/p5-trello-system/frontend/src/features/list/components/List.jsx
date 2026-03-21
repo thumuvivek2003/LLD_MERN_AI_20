@@ -4,6 +4,7 @@ import Card from "../../card/components/Card";
 import AddCard from "../../card/components/AddCard";
 import CardModal from "../../card/components/CardModal";
 import { updateList, deleteList } from "../services/listService";
+import { SortableContext } from "@dnd-kit/sortable";
 
 export default function List({ list, onListChanged }) {
 
@@ -56,14 +57,15 @@ export default function List({ list, onListChanged }) {
         )}
         <button style={styles.deleteBtn} onClick={handleDelete}>&times;</button>
       </div>
-
-      {cards.map(card => (
-        <Card
-          key={card._id}
-          card={card}
-          onClick={setSelectedCard}
-        />
-      ))}
+      <SortableContext items={cards.map(c => c._id)}>
+        {cards.map(card => (
+          <Card
+            key={card._id}
+            card={card}
+            onClick={setSelectedCard}
+          />
+        ))}
+      </SortableContext>
 
       <AddCard listId={list._id} onAdded={loadCards} />
 

@@ -19,3 +19,10 @@ export const deleteBoard = async (id) => {
   const res = await api.delete(`/boards/${id}`);
   return res.data;
 };
+
+
+export const getBoardListCards = async (id) => {
+  const res = await api.get(`/boards/all/${id}`);
+  return res.data;
+};
+

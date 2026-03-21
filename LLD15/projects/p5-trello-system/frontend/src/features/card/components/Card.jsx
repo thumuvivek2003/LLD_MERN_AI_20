@@ -1,12 +1,34 @@
+import { useSortable } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
+
 export default function Card({ card, onClick }) {
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition
+  } = useSortable({ id: card._id });
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition
+  };
 
   return (
     <div
-      style={styles.card}
-      onClick={() => onClick(card)}
+      ref={setNodeRef}
+      style={style}
+      {...attributes}
+      {...listeners}
     >
-      <span>{card.title}</span>
-      {card.description && <p style={styles.desc}>{card.description}</p>}
+      <div
+        style={styles.card}
+        onClick={() => onClick(card)}
+      >
+        <span>{card.title}</span>
+        {card.description && <p style={styles.desc}>{card.description}</p>}
+      </div>
     </div>
   );
 }
