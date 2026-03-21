@@ -1,0 +1,212 @@
+As a user I want to register or login to access my account
+(I need to enter mail,password,role on register
+I need to enter mail password on login)
+
+
+If user is admin 
+On main dashbaord 
+As an admin on Board Management I can add , edit title , delete the boards 
+User Management 
+As an admin I can give the access to the users role as TL , Manager, Member , Viewer so they can access accordingly 
+As an admin I can update the permissions to each role so the role person access his rights 
+
+
+If User is Manager 
+he can access all his boards and edit update , delete 
+he can assign members to the boards so they can work 
+
+
+As a TL 
+I can create the columns edit , update and delete 
+
+I can create , add , edit , delete the card 
+
+I can assign work to the members to work on specific card
+
+
+As a Member 
+I can access the cards edit update ,add delete move acrosse the columns
+I can comment to write the notes for that ticket 
+
+
+
+As a viewer 
+I only can able to see the board I can't edit 
+
+
+So first I am thinking for admin than I will enforce permission based 
+Admin Login 
+Admin Open Dasboard 3 sections Boards , Members , Role Permission Section 
+
+Board Section
+boardCards with : dots , Members manage with member + check boxes 
+
+userSection 
+List in tables with name , role , reset password button as options so can be updated 
+
+RolePermissionSection 
+
+
+
+boardModel : 
+boardId
+boardTitle
+boardDescription
+getAllBoards() --> id,title,description,member list 
+
+
+BoardMember
+user_id
+board_id
+role_id
+
+
+
+userModel: 
+userid 
+username
+Name 
+email 
+password hashed 
+isAdmin (boolean)
++ updateRole
++ resetPassword  
+
+
+Roles 
+role_id
+role_name
+description(optional)
+
+Permissions 
+permission_id
+permission_name use only UPPER Chars minLen about 15
+Description 
+
+
+rolePermissionModel : 
+role_id
+permission_id
++createMapping (role_id,perm_id)
++removeMapping (role_id,perm_id)
+
+
+
+Phase 2 
+
+Now after user open the board 
+Now In board he can have columns add edit reorder so to better access 
+
+
+columnModel 
+id 
+order floating number
+column_name
+addColumn(boardId,name)
+deleteColumn(columnId)
+editColumn(columnId)
+
+
+Now inside columns 
+User can able to see cards add , edit delete , move  cards across the columns 
+Card have the members assigned so who need to work
+Card have the description as the Latex support so we can write rich text 
+Card have the comment section so user can comment there  heirarchally  so done 
+Card have the labels too so filteration fast 
+
+cardModel 
+id
+column_id
+position fraction floating nuber
+assignMember(cardId,memberId)
+
+
+unassignMember(cardId,memberId)
+updateCard(cardId,title,description)
+getComments(cardId)
+getLabels 
+
+
+
+Next Tasks 
+Set up the models according to the Design 
+DB  app middleware set up done
+# 🔐 USER
+POST    /api/users/register
+POST    /api/users/login
+PUT     /api/users/reset-password
+
+# 📋 BOARD
+POST    /api/boards
+PUT     /api/boards/:id
+DELETE  /api/boards/:id
+GET     /api/boards/:userId
+
+# 👥 BOARD MEMBER
+POST    /api/board-members
+PUT     /api/board-members
+DELETE  /api/board-members
+GET     /api/board-members/:boardId
+
+# 🎭 ROLE
+POST    /api/roles
+GET     /api/roles
+
+# 🔑 PERMISSION
+POST    /api/permissions
+GET     /api/permissions
+
+# 🔗 ROLE PERMISSION
+POST    /api/role-permissions
+DELETE  /api/role-permissions
+GET     /api/role-permissions/:roleId
+
+# 📊 COLUMN
+POST    /api/columns
+PUT     /api/columns/:id
+DELETE  /api/columns/:id
+GET     /api/columns/:boardId
+
+# 🧩 CARD
+POST    /api/cards
+PUT     /api/cards/:id
+DELETE  /api/cards/:id
+PUT     /api/cards/move
+
+# 👤 CARD MEMBER
+POST    /api/card-members
+DELETE  /api/card-members
+GET     /api/card-members/:cardId
+
+# 💬 COMMENT
+POST    /api/comments
+GET     /api/comments/:cardId
+
+# 🏷️ LABEL
+POST    /api/labels
+GET     /api/labels/:boardId
+
+# 🔖 CARD LABEL
+POST    /api/card-labels
+DELETE  /api/card-labels
+GET     /api/card-labels/:cardId
+
+
+
+Next Tasks 
+Design Frontend
+From User Stories 
+component , api , and than connect the backend 
+
+So frontend code folder structure ready at '
+
+
+
+
+
+https://chatgpt.com/g/g-p-68ba5a2d7bc88191bb5382964bb14e77-system-desgin/c/69be876d-8e38-8323-b106-8ecb574319c0
+
+Lovable Here : https://lovable.dev/projects/1213811f-8ddb-4ace-b026-878d5bc100a7
+https://lovable.dev/projects/1213811f-8ddb-4ace-b026-878d5bc100a7
+
+

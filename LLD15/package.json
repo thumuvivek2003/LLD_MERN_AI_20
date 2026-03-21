@@ -24,6 +24,7 @@
     "p3": "node run-project p3-url-shortener",
     "p4": "node run-project p4-file-storage-system",
     "p5": "node run-project p5-trello-system",
+    "p5-2": "node run-project p5-Jira-system",
     "p6": "node run-project p6-notification-system",
     "p7": "node run-project p7-chat-system",
     "p8": "node run-project p8-rate-limiter",
