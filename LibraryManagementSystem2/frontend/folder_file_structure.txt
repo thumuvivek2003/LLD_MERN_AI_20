@@ -1,0 +1,188 @@
+src/
+│
+├── app/
+│   ├── router/
+│   │    ├── AppRouter.jsx
+│   │    ├── ProtectedRoute.jsx
+│   │    └── RoleBasedRoute.jsx
+│   │
+│   ├── providers/
+│   │    ├── AuthProvider.jsx
+│   │    ├── ThemeProvider.jsx
+│   │    └── QueryProvider.jsx
+│   │
+│   └── store/
+│        ├── authStore.js
+│        ├── userStore.js
+│        └── borrowStore.js
+│
+├── modules/
+│
+│   ├── auth/
+│   │    ├── pages/
+│   │    │    ├── LoginPage.jsx
+│   │    │    └── RegisterPage.jsx
+│   │    │
+│   │    ├── components/
+│   │    │    ├── LoginForm.jsx
+│   │    │    └── AuthLayout.jsx
+│   │    │
+│   │    ├── hooks/
+│   │    │    └── useAuth.js
+│   │    │
+│   │    ├── services/
+│   │    │    └── authService.js
+│   │    │       (API calls only)
+│   │    │
+│   │    ├── validations/
+│   │    │    └── authSchema.js
+│   │    │
+│   │    └── utils/
+│   │         └── authHelpers.js
+│
+│   ├── books/
+│   │    ├── pages/
+│   │    │    ├── BookListPage.jsx
+│   │    │    ├── BookDetailsPage.jsx
+│   │    │    └── ManageBooksPage.jsx
+│   │    │
+│   │    ├── components/
+│   │    │    ├── BookCard.jsx
+│   │    │    ├── BookTable.jsx
+│   │    │    ├── BookSearchBar.jsx
+│   │    │    ├── AddBookModal.jsx
+│   │    │    └── EditBookModal.jsx
+│   │    │
+│   │    ├── hooks/
+│   │    │    ├── useBooks.js
+│   │    │    └── useBookFilters.js
+│   │    │
+│   │    ├── services/
+│   │    │    └── bookService.js
+│   │    │
+│   │    ├── state/
+│   │    │    └── bookStore.js
+│   │    │
+│   │    ├── validations/
+│   │    │    └── bookSchema.js
+│   │    │
+│   │    └── utils/
+│   │         └── bookUtils.js
+│
+│   ├── borrow/
+│   │    ├── pages/
+│   │    │    ├── BorrowRequestsPage.jsx
+│   │    │    ├── ApprovedBooksPage.jsx
+│   │    │    ├── ReturnedBooksPage.jsx
+│   │    │    └── FinePage.jsx
+│   │    │
+│   │    ├── components/
+│   │    │    ├── RequestTable.jsx
+│   │    │    ├── ApproveRequestModal.jsx
+│   │    │    ├── ReturnBookModal.jsx
+│   │    │    ├── FineCard.jsx
+│   │    │    └── BorrowStatusBadge.jsx
+│   │    │
+│   │    ├── hooks/
+│   │    │    ├── useBorrowRequests.js
+│   │    │    ├── useFineCalculation.js
+│   │    │    └── useBorrowFilters.js
+│   │    │
+│   │    ├── services/
+│   │    │    └── borrowService.js
+│   │    │
+│   │    ├── state/
+│   │    │    └── borrowStore.js
+│   │    │
+│   │    ├── strategies/
+│   │    │    ├── defaultFineStrategy.js
+│   │    │    └── premiumFineStrategy.js
+│   │    │
+│   │    ├── constants/
+│   │    │    ├── requestStatus.js
+│   │    │    └── fineStatus.js
+│   │    │
+│   │    └── utils/
+│   │         ├── dueDateUtils.js
+│   │         └── fineUtils.js
+│
+│   ├── users/
+│   │    ├── pages/
+│   │    │    ├── UserListPage.jsx
+│   │    │    └── UserDetailsPage.jsx
+│   │    │
+│   │    ├── components/
+│   │    │    ├── UserTable.jsx
+│   │    │    ├── AddUserModal.jsx
+│   │    │    ├── RoleSelector.jsx
+│   │    │    └── UserStatusToggle.jsx
+│   │    │
+│   │    ├── hooks/
+│   │    │    └── useUsers.js
+│   │    │
+│   │    ├── services/
+│   │    │    └── userService.js
+│   │    │
+│   │    ├── validations/
+│   │    │    └── userSchema.js
+│   │    │
+│   │    └── state/
+│   │         └── userStore.js
+│
+├── shared/
+│   │
+│   ├── components/
+│   │    ├── ui/
+│   │    │    ├── Button.jsx
+│   │    │    ├── Input.jsx
+│   │    │    ├── Modal.jsx
+│   │    │    ├── Table.jsx
+│   │    │    ├── Badge.jsx
+│   │    │    ├── Loader.jsx
+│   │    │    └── EmptyState.jsx
+│   │    │
+│   │    ├── layouts/
+│   │    │    ├── DashboardLayout.jsx
+│   │    │    ├── Sidebar.jsx
+│   │    │    ├── Navbar.jsx
+│   │    │    └── PageContainer.jsx
+│   │    │
+│   │    └── feedback/
+│   │         ├── ErrorMessage.jsx
+│   │         ├── SuccessToast.jsx
+│   │         └── ConfirmDialog.jsx
+│   │
+│   ├── hooks/
+│   │    ├── useDebounce.js
+│   │    ├── useModal.js
+│   │    └── usePagination.js
+│   │
+│   ├── services/
+│   │    ├── apiClient.js
+│   │    └── tokenService.js
+│   │
+│   ├── constants/
+│   │    ├── roles.js
+│   │    ├── routes.js
+│   │    └── appConfig.js
+│   │
+│   ├── utils/
+│   │    ├── dateFormatter.js
+│   │    ├── currencyFormatter.js
+│   │    └── storageUtils.js
+│   │
+│   └── styles/
+│        ├── globals.css
+│        └── theme.css
+│
+├── assets/
+│   ├── icons/
+│   ├── images/
+│   └── illustrations/
+│
+├── tests/
+│   ├── unit/
+│   └── integration/
+│
+├── App.jsx
+└── main.jsx

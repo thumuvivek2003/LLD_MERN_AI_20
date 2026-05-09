@@ -1,0 +1,7 @@
+import { useState } from 'react';
+
+export function usePagination(total, perPage = 10) {
+  const [page, setPage] = useState(1);
+  const totalPages = Math.ceil(total / perPage);
+  return { page, setPage, totalPages, offset: (page - 1) * perPage };
+}

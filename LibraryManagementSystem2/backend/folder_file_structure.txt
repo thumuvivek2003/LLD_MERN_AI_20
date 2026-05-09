@@ -1,0 +1,108 @@
+LibraryManagementSystem
+│
+├── enums/
+│   ├── RequestStatus
+│   ├── FineStatus
+│   ├── UserRole
+│   └── UserStatus
+│
+├── entities/
+│   ├── User
+│   │    ├── canBorrowBook()
+│   │    └── hasPendingFine()
+│   │
+│   ├── Book
+│   │    ├── increaseCopies()
+│   │    ├── decreaseCopies()
+│   │    └── isAvailable()
+│   │
+│   ├── BorrowRequest
+│   │    ├── approve()
+│   │    ├── reject()
+│   │    ├── returnBook()
+│   │    └── calculateFine()
+│   │
+│   └── Fine
+│        ├── markPaid()
+│        └── isPending()
+│
+├── controllers/
+│   ├── AuthController
+│   ├── BookController
+│   ├── BorrowController
+│   ├── FineController
+│   └── UserController
+│
+├── services/
+│   ├── AuthService
+│   │    ├── login()
+│   │    └── register()
+│   │
+│   ├── BookService
+│   │    ├── addBook()
+│   │    ├── editBook()
+│   │    ├── deleteBook()
+│   │    ├── searchBooks()
+│   │    └── updateCopies()
+│   │
+│   ├── BorrowService
+│   │    ├── requestBorrow()
+│   │    ├── approveRequest()
+│   │    ├── rejectRequest()
+│   │    ├── returnBook()
+│   │    ├── markOverdue()
+│   │    └── getUserBorrowHistory()
+│   │
+│   ├── FineService
+│   │    ├── calculateFine()
+│   │    ├── markFinePaid()
+│   │    └── getPendingFines()
+│   │
+│   └── UserService
+│        ├── addUser()
+│        ├── activateUser()
+│        ├── deactivateUser()
+│        └── assignRole()
+│
+├── repositories/
+│   ├── UserRepository
+│   ├── BookRepository
+│   ├── BorrowRepository
+│   └── FineRepository
+│
+├── state-pattern/
+│   ├── BorrowState (interface)
+│   │
+│   ├── PendingState
+│   │    ├── approve()
+│   │    └── reject()
+│   │
+│   ├── ApprovedState
+│   │    ├── returnBook()
+│   │    └── markOverdue()
+│   │
+│   ├── ReturnedState
+│   │
+│   ├── RejectedState
+│   │
+│   └── OverdueState
+│        └── calculateFine()
+│
+├── strategy-pattern/
+│   ├── FineStrategy
+│   ├── DefaultFineStrategy
+│   └── PremiumUserFineStrategy
+│
+├── factories/
+│   └── BorrowStateFactory
+│        └── createState()
+│
+├── middlewares/
+│   ├── authMiddleware
+│   ├── roleMiddleware
+│   └── errorMiddleware
+│
+└── utils/
+    ├── dateUtils
+    ├── fineUtils
+    └── validators

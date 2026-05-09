@@ -1,0 +1,15 @@
+:root {
+  --primary: #0d6efd;
+  --bg: #f8f9fa;
+  --text: #212529;
+  --sidebar-bg: #ffffff;
+  --border: #dee2e6;
+}
+
+[data-theme="dark"] {
+  --primary: #4d8ef0;
+  --bg: #121212;
+  --text: #e9ecef;
+  --sidebar-bg: #1e1e1e;
+  --border: #333;
+}

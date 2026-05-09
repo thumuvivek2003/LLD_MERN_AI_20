@@ -1,0 +1,7 @@
+export const RequestStatus = {
+  PENDING: 'PENDING',
+  APPROVED: 'APPROVED',
+  REJECTED: 'REJECTED',
+  RETURNED: 'RETURNED',
+  OVERDUE: 'OVERDUE',
+};
