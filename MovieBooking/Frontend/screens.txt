@@ -1,0 +1,78 @@
+common Pages
+1	Login Page	User login
+2	Register Page	Create account
+
+USER PAGES
+Sno	Page Name	Purpose
+3	Home Page	Browse/search movies
+4	Movie Details Page	Movie info + theaters + timings
+5	Seat Selection Page	Select seats visually
+6	Payment Page	Dummy payment
+7	Booking Success Page	Ticket confirmation
+8	My Bookings Page	Booking history
+9	Booking Details Page	Single booking details/profile
+USER FLOW
+Login/Register
+    ↓
+Home
+    ↓
+Movie Details
+    ↓
+Seat Selection
+    ↓
+Payment
+    ↓
+Booking Success
+Simple.Clean.Perfect MVP.
+
+
+ADMIN SCREENS
+Sno	Screen Name	Purpose
+1	Admin Login	Admin authentication
+2	Dashboard	Stats + quick overview
+3	Movies List	View/manage movies
+4	Add Movie	Create movie
+5	Edit Movie	Update movie
+6	Theaters List	View/manage theaters
+7	Add Theater	Create theater
+8	Edit Theater	Update theater
+9	Screens List	Manage theater screens
+10	Add Screen	Add screen to theater
+11	Edit Screen	Edit screen details
+12	Seat Layout Designer	Design seat structure
+13	Shows List	View all shows
+14	Create Show	Create movie show
+15	Edit Show	Update show timing/details
+16	Show Details	Booking stats + seat status
+SIMPLE ADMIN FLOW
+Add Theater
+    ↓
+Add Screen
+    ↓
+Design Seat Layout
+    ↓
+Add Movie
+    ↓
+Create Show
+
+This is your CORE admin workflow.
+
+IMPORTANT SIMPLIFICATION
+
+Instead of:
+
+Separate page for every tiny action
+
+use:
+
+Modal/Drawer Approach
+
+Example:
+
+Feature	Better UX
+Add Movie	Modal
+Edit Movie	Modal
+Add Theater	Modal
+Edit Show	Drawer
+
+This keeps UI simpler and more professional.

@@ -1,0 +1,122 @@
+backend/
+│
+├── src/
+│   │
+│   ├── app.js
+│   ├── server.js
+│   │
+│   ├── config/
+│   │   ├── db.js
+│   │   ├── env.js
+│   │   └── constants.js
+│   │
+│   ├── shared/
+│   │   ├── enums/
+│   │   │   ├── seatStatus.enum.js
+│   │   │   ├── bookingStatus.enum.js
+│   │   │   ├── paymentStatus.enum.js
+│   │   │   └── userRole.enum.js
+│   │   │
+│   │   ├── utils/
+│   │   │   ├── apiResponse.js
+│   │   │   ├── asyncHandler.js
+│   │   │   ├── generateId.js
+│   │   │   └── dateHelper.js
+│   │   │
+│   │   ├── middleware/
+│   │   │   ├── auth.middleware.js
+│   │   │   ├── admin.middleware.js
+│   │   │   ├── error.middleware.js
+│   │   │   └── validate.middleware.js
+│   │   │
+│   │   └── validators/
+│   │       ├── auth.validator.js
+│   │       ├── booking.validator.js
+│   │       └── show.validator.js
+│   │
+│   ├── modules/
+│   │   │
+│   │   ├── auth/
+│   │   │   ├── auth.routes.js
+│   │   │   ├── auth.controller.js
+│   │   │   ├── auth.service.js
+│   │   │   ├── auth.repository.js
+│   │   │   ├── auth.model.js
+│   │   │   └── auth.mapper.js
+│   │   │
+│   │   ├── movies/
+│   │   │   ├── movie.routes.js
+│   │   │   ├── movie.controller.js
+│   │   │   ├── movie.service.js
+│   │   │   ├── movie.repository.js
+│   │   │   ├── movie.model.js
+│   │   │   └── movie.mapper.js
+│   │   │
+│   │   ├── theaters/
+│   │   │   ├── theater.routes.js
+│   │   │   ├── theater.controller.js
+│   │   │   ├── theater.service.js
+│   │   │   ├── theater.repository.js
+│   │   │   ├── theater.model.js
+│   │   │   └── theater.mapper.js
+│   │   │
+│   │   ├── screens/
+│   │   │   ├── screen.routes.js
+│   │   │   ├── screen.controller.js
+│   │   │   ├── screen.service.js
+│   │   │   ├── screen.repository.js
+│   │   │   ├── screen.model.js
+│   │   │   └── seatLayout.service.js
+│   │   │
+│   │   ├── shows/
+│   │   │   ├── show.routes.js
+│   │   │   ├── show.controller.js
+│   │   │   ├── show.service.js
+│   │   │   ├── show.repository.js
+│   │   │   ├── show.model.js
+│   │   │   └── show.mapper.js
+│   │   │
+│   │   ├── seats/
+│   │   │   ├── seat.routes.js
+│   │   │   ├── seat.controller.js
+│   │   │   ├── seat.service.js
+│   │   │   ├── seat.repository.js
+│   │   │   ├── seat.model.js
+│   │   │   ├── seatLock.service.js
+│   │   │   └── seatState.service.js
+│   │   │
+│   │   ├── bookings/
+│   │   │   ├── booking.routes.js
+│   │   │   ├── booking.controller.js
+│   │   │   ├── booking.service.js
+│   │   │   ├── booking.repository.js
+│   │   │   ├── booking.model.js
+│   │   │   └── booking.mapper.js
+│   │   │
+│   │   ├── payments/
+│   │   │   ├── payment.routes.js
+│   │   │   ├── payment.controller.js
+│   │   │   ├── payment.service.js
+│   │   │   ├── payment.repository.js
+│   │   │   ├── payment.model.js
+│   │   │   ├── strategies/
+│   │   │   │   ├── upi.strategy.js
+│   │   │   │   ├── card.strategy.js
+│   │   │   │   └── wallet.strategy.js
+│   │   │   │
+│   │   │   └── paymentStrategyFactory.js
+│   │   │
+│   │   └── system/
+│   │       ├── cron.service.js
+│   │       └── lockCleanup.service.js
+│   │
+│   ├── routes/
+│   │   └── index.routes.js
+│   │
+│   └── docs/
+│       └── api-docs.md
+│
+├── .env
+├── .gitignore
+├── package.json
+└── README.md

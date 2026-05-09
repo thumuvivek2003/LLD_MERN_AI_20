@@ -1,0 +1,44 @@
+USER APIs
+Actor	Screen	Endpoint	Purpose
+User	Login	POST /api/auth/login	Login user
+User	Register	POST /api/auth/register	Create account
+User	Logout	POST /api/auth/logout	Logout
+User	Home / Browse Movies	GET /api/movies	Get movies list
+User	Home / Search	GET /api/movies?search=leo	Search movies
+User	Home / Filter by City	GET /api/movies?city=hyderabad	Filter movies
+User	Movie Details	GET /api/movies/:movieId	Get movie details
+User	Movie Details	GET /api/movies/:movieId/shows	Get movie shows
+User	Theater & Timings	GET /api/shows/:showId	Get show details
+User	Seat Selection	GET /api/shows/:showId/seats	Get seat layout/status
+User	Seat Selection	POST /api/seat-locks	Lock selected seats
+User	Payment	POST /api/payments/process	Dummy payment
+User	Booking Success	POST /api/bookings	Confirm booking
+User	My Bookings	GET /api/bookings/me	User booking history
+User	Booking Details	GET /api/bookings/:bookingId	Single booking
+
+ADMIN APIs
+Actor	Screen	Endpoint	Purpose
+Admin	Login	POST /api/auth/login	Admin login
+Admin	Dashboard	GET /api/admin/dashboard	Dashboard stats
+Admin	Movies List	GET /api/admin/movies	Get movies
+Admin	Add Movie	POST /api/admin/movies	Create movie
+Admin	Edit Movie	PATCH /api/admin/movies/:movieId	Update movie
+Admin	Delete Movie	DELETE /api/admin/movies/:movieId	Delete movie
+Admin	Theater List	GET /api/admin/theaters	Get theaters
+Admin	Add Theater	POST /api/admin/theaters	Create theater
+Admin	Edit Theater	PATCH /api/admin/theaters/:theaterId	Update theater
+Admin	Delete Theater	DELETE /api/admin/theaters/:theaterId	Delete theater
+Admin	Seat Layout	GET /api/admin/screens/:screenId/layout	Get seat layout
+Admin	Seat Layout	PUT /api/admin/screens/:screenId/layout	Update layout
+Admin	Create Show	POST /api/admin/shows	Create show
+Admin	Shows List	GET /api/admin/shows	Get all shows
+Admin	Edit Show	PATCH /api/admin/shows/:showId	Update show
+Admin	Delete Show	DELETE /api/admin/shows/:showId	Delete show
+Admin	Show Details	GET /api/admin/shows/:showId	Show analytics
+Admin	Show Bookings	GET /api/admin/shows/:showId/bookings	Booking stats
+CORE SYSTEM APIs (IMPORTANT)
+
+These are not screens directly, but core LLD APIs.
+Release expired locks	POST /api/system/release-expired-locks	Auto cleanup
+Validate seat availability	POST /api/seats/validate	Concurrency
+Cancel booking	PATCH /api/bookings/:bookingId/cancel	State changes

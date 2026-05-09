@@ -1,0 +1,13 @@
+:root {
+  --bg: #0f0f1a;
+  --bg-card: #1a1a2e;
+  --bg-elevated: #16213e;
+  --accent: #e50914;
+  --accent-hover: #b80610;
+  --text: #ffffff;
+  --text-muted: #a0a0b0;
+  --border: #2a2a3e;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --radius: 12px;
+}

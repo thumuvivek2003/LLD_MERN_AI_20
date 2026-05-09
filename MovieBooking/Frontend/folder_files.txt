@@ -1,0 +1,162 @@
+frontend/
+│
+├── public/
+│   └── favicon.ico
+│
+├── src/
+│   │
+│   ├── main.jsx
+│   ├── App.jsx
+│   ├── index.css
+│   │
+│   ├── app/
+│   │   ├── router.jsx
+│   │   ├── providers.jsx
+│   │   └── store.js
+│   │
+│   ├── layouts/
+│   │   ├── UserLayout.jsx
+│   │   ├── AdminLayout.jsx
+│   │   └── AuthLayout.jsx
+│   │
+│   ├── routes/
+│   │   ├── user.routes.jsx
+│   │   ├── admin.routes.jsx
+│   │   └── protected.routes.jsx
+│   │
+│   ├── shared/
+│   │   │
+│   │   ├── api/
+│   │   │   ├── axios.js
+│   │   │   └── apiEndpoints.js
+│   │   │
+│   │   ├── components/
+│   │   │   ├── Button.jsx
+│   │   │   ├── Input.jsx
+│   │   │   ├── Modal.jsx
+│   │   │   ├── Loader.jsx
+│   │   │   ├── EmptyState.jsx
+│   │   │   ├── Navbar.jsx
+│   │   │   ├── Sidebar.jsx
+│   │   │   ├── SearchBar.jsx
+│   │   │   ├── Pagination.jsx
+│   │   │   └── StatusBadge.jsx
+│   │   │
+│   │   ├── hooks/
+│   │   │   ├── useAuth.js
+│   │   │   ├── useDebounce.js
+│   │   │   └── useModal.js
+│   │   │
+│   │   ├── utils/
+│   │   │   ├── formatDate.js
+│   │   │   ├── formatCurrency.js
+│   │   │   └── seatHelpers.js
+│   │   │
+│   │   ├── constants/
+│   │   │   ├── userRoles.js
+│   │   │   ├── seatStatus.js
+│   │   │   └── bookingStatus.js
+│   │   │
+│   │   └── services/
+│   │       ├── token.service.js
+│   │       └── storage.service.js
+│   │
+│   ├── features/
+│   │   │
+│   │   ├── auth/
+│   │   │   ├── pages/
+│   │   │   │   ├── LoginPage.jsx
+│   │   │   │   └── RegisterPage.jsx
+│   │   │   │
+│   │   │   ├── components/
+│   │   │   │   ├── LoginForm.jsx
+│   │   │   │   └── RegisterForm.jsx
+│   │   │   │
+│   │   │   ├── api/
+│   │   │   │   └── auth.api.js
+│   │   │   │
+│   │   │   ├── hooks/
+│   │   │   │   └── useLogin.js
+│   │   │   │
+│   │   │   └── store/
+│   │   │       └── auth.store.js
+│   │   │
+│   │   ├── movies/
+│   │   │   ├── pages/
+│   │   │   │   ├── HomePage.jsx
+│   │   │   │   └── MovieDetailsPage.jsx
+│   │   │   │
+│   │   │   ├── components/
+│   │   │   │   ├── MovieCard.jsx
+│   │   │   │   ├── MovieBanner.jsx
+│   │   │   │   ├── TheaterList.jsx
+│   │   │   │   └── ShowTimeCard.jsx
+│   │   │   │
+│   │   │   ├── api/
+│   │   │   │   └── movie.api.js
+│   │   │   │
+│   │   │   └── hooks/
+│   │   │       └── useMovies.js
+│   │   │
+│   │   ├── bookings/
+│   │   │   ├── pages/
+│   │   │   │   ├── SeatSelectionPage.jsx
+│   │   │   │   ├── PaymentPage.jsx
+│   │   │   │   ├── BookingSuccessPage.jsx
+│   │   │   │   └── MyBookingsPage.jsx
+│   │   │   │
+│   │   │   ├── components/
+│   │   │   │   ├── SeatGrid.jsx
+│   │   │   │   ├── SeatItem.jsx
+│   │   │   │   ├── BookingSummary.jsx
+│   │   │   │   ├── PaymentMethod.jsx
+│   │   │   │   └── TicketCard.jsx
+│   │   │   │
+│   │   │   ├── api/
+│   │   │   │   └── booking.api.js
+│   │   │   │
+│   │   │   ├── hooks/
+│   │   │   │   ├── useSeatSelection.js
+│   │   │   │   └── useBooking.js
+│   │   │   │
+│   │   │   └── store/
+│   │   │       └── booking.store.js
+│   │   │
+│   │   ├── admin/
+│   │   │   ├── pages/
+│   │   │   │   ├── DashboardPage.jsx
+│   │   │   │   ├── MoviesPage.jsx
+│   │   │   │   ├── TheatersPage.jsx
+│   │   │   │   ├── ShowsPage.jsx
+│   │   │   │   └── SeatLayoutDesignerPage.jsx
+│   │   │   │
+│   │   │   ├── components/
+│   │   │   │   ├── MovieTable.jsx
+│   │   │   │   ├── TheaterTable.jsx
+│   │   │   │   ├── ShowTable.jsx
+│   │   │   │   ├── SeatDesignerGrid.jsx
+│   │   │   │   ├── SeatToolbar.jsx
+│   │   │   │   └── DashboardStats.jsx
+│   │   │   │
+│   │   │   ├── api/
+│   │   │   │   └── admin.api.js
+│   │   │   │
+│   │   │   └── hooks/
+│   │   │       └── useDashboard.js
+│   │   │
+│   │   └── payments/
+│   │       ├── components/
+│   │       │   ├── CardPayment.jsx
+│   │       │   ├── UpiPayment.jsx
+│   │       │   └── WalletPayment.jsx
+│   │       │
+│   │       └── hooks/
+│   │           └── usePayment.js
+│   │
+│   └── styles/
+│       ├── globals.css
+│       └── variables.css
+│
+├── .env
+├── package.json
+└── vite.config.js
