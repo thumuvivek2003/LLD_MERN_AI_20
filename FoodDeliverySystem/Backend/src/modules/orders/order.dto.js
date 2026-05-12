@@ -1,0 +1,21 @@
+export const buildOrderDto = (o) => ({
+  id: o._id?.toString?.() || o.id,
+  customerId: o.customerId?.toString?.() || o.customerId,
+  restaurantId: o.restaurantId?.toString?.() || o.restaurantId,
+  items: (o.items || []).map((i) => ({
+    menuItemId: i.menuItemId?.toString?.() || i.menuItemId,
+    name: i.name,
+    price: i.price,
+    quantity: i.quantity,
+  })),
+  totalAmount: o.totalAmount,
+  paymentMethod: o.paymentMethod,
+  paymentId: o.paymentId ? o.paymentId.toString() : null,
+  status: o.status,
+  deliveryPartnerId: o.deliveryPartnerId ? o.deliveryPartnerId.toString() : null,
+  deliveryAddress: o.deliveryAddress,
+  hasOtp: Boolean(o.deliveryOtp),
+  statusHistory: o.statusHistory || [],
+  createdAt: o.createdAt,
+  updatedAt: o.updatedAt,
+});

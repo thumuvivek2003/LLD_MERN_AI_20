@@ -1,0 +1,23 @@
+Your Project Flow (Excellent for Interviews)
+Member
+search book
+→ request borrow
+→ wait approval
+→ receive book
+→ return book
+→ pay fine if overdue
+Librarian
+review requests
+→ approve/reject
+→ monitor due dates
+→ accept returns
+→ mark fines paid
+Admin
+manage users
+→ manage roles
+→ activate/deactivate
+
+
+
+
+

@@ -1,0 +1,40 @@
+Final Recommended MVP Scope
+1. Member
+
+Perfect operations:
+
+Operation	Keep?	Why
+Search books	✅	querying/filtering
+View availability	✅	inventory logic
+Request borrow	✅	workflow
+View requests	✅	state tracking
+View approved books	✅	relationship/state
+View fines	✅	lifecycle
+View returned books	✅	history
+
+Excellent.
+
+2. Librarian
+
+Very strong.
+
+Operation	Keep?	Why
+Add/Edit/Delete books	✅	CRUD + inventory
+Manage copies	✅	stock management
+View borrow requests	✅	workflow queue
+Approve requests	✅	authorization
+Default due = 14 days	✅	business rule
+View users + borrowed books	✅	relations
+Mark return completed	✅	state transition
+Mark fine paid	✅	payment state
+
+This is GREAT LLD practice.
+
+3. Admin
+
+Also good.
+
+Operation	Keep?	Why
+Add users	✅	management
+Manage roles	✅	RBAC
+Activate/Deactivate users	✅	account state
