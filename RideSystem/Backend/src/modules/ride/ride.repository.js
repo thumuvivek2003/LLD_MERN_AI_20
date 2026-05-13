@@ -1,6 +1,6 @@
 import { BaseRepository } from '../../core/base/base.repository.js';
 import { Ride } from './ride.model.js';
-import { RIDE_STATUS } from '../../config/constants.js';
+import { RIDE_STATUS, PAYMENT_STATUS } from '../../config/constants.js';
 
 class RideRepository extends BaseRepository {
   constructor() {
@@ -42,6 +42,17 @@ class RideRepository extends BaseRepository {
 
   findPending() {
     return this.model.find({ status: RIDE_STATUS.REQUESTED }).sort({ createdAt: 1 });
+  }
+
+  // Latest completed ride for a rider that still owes payment
+  findUnpaidByRider(riderId) {
+    return this.model
+      .findOne({
+        rider: riderId,
+        status: RIDE_STATUS.COMPLETED,
+        paymentStatus: PAYMENT_STATUS.PENDING,
+      })
+      .sort({ completedAt: -1 });
   }
 
   // Atomic assignment to prevent race conditions when multiple drivers accept

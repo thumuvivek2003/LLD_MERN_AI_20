@@ -7,7 +7,7 @@ import { PaymentPublisher } from '../../core/event-bus/publishers/payment.publis
 import { paymentCompletedPayload } from './events/payment-completed.event.js';
 import { RideError } from '../../core/exceptions/ride.error.js';
 import { AppError } from '../../core/exceptions/app.error.js';
-import { PAYMENT_STATUS, RIDE_STATUS } from '../../config/constants.js';
+import { PAYMENT_STATUS, RIDE_STATUS, PAYMENT_METHOD } from '../../config/constants.js';
 
 class PaymentService extends BaseService {
   constructor() {
@@ -54,6 +54,45 @@ class PaymentService extends BaseService {
 
     await driverService.incrementEarnings(ride.driver._id || ride.driver, ride.fare);
 
+    PaymentPublisher.paymentCompleted(paymentCompletedPayload(payment));
+    return payment;
+  }
+
+  async receiveCash(rideId, driverUserId) {
+    const ride = await rideService.getById(rideId);
+    if (!ride.driver || String(ride.driver._id || ride.driver) !== String(driverUserId)) {
+      throw new RideError('Not your ride', 403);
+    }
+    if (ride.status !== RIDE_STATUS.COMPLETED) {
+      throw new RideError('Ride not completed yet', 400);
+    }
+    if (ride.paymentStatus === PAYMENT_STATUS.PAID) {
+      throw new RideError('Payment already collected', 409);
+    }
+
+    const existing = await this.repository.findByRide(rideId);
+    const payment = existing
+      ? await this.repository.updateById(existing._id, {
+          method: PAYMENT_METHOD.CASH,
+          status: PAYMENT_STATUS.PAID,
+          transactionRef: `CASH-${Date.now()}`,
+          paidAt: new Date(),
+        })
+      : await this.repository.create({
+          ride: ride._id,
+          rider: ride.rider._id || ride.rider,
+          driver: ride.driver._id || ride.driver,
+          amount: ride.fare,
+          method: PAYMENT_METHOD.CASH,
+          status: PAYMENT_STATUS.PAID,
+          transactionRef: `CASH-${Date.now()}`,
+          paidAt: new Date(),
+        });
+
+    ride.paymentStatus = PAYMENT_STATUS.PAID;
+    await ride.save();
+
+    await driverService.incrementEarnings(ride.driver._id || ride.driver, ride.fare);
     PaymentPublisher.paymentCompleted(paymentCompletedPayload(payment));
     return payment;
   }

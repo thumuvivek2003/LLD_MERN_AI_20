@@ -8,6 +8,7 @@ const router = Router();
 router.use(authMiddleware);
 
 router.post('/:rideId', requireRole(ROLES.RIDER), paymentController.pay);
+router.post('/:rideId/receive-cash', requireRole(ROLES.DRIVER), paymentController.receiveCash);
 router.get('/ride/:rideId', paymentController.forRide);
 router.get('/driver/earnings', requireRole(ROLES.DRIVER), paymentController.driverEarnings);
 

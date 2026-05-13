@@ -5,15 +5,20 @@ import Button from '../../../core/components/ui/Button.jsx';
 import RideStatusBadge from '../../../core/components/ride/RideStatusBadge.jsx';
 import { rideApi } from '../services/ride.api.js';
 import { useAuth } from '../../../core/hooks/useAuth.js';
+import { formatCurrency } from '../../../core/utils/formatCurrency.js';
 
 export default function RiderHomePage() {
   const { user } = useAuth();
   const [active, setActive] = useState(null);
+  const [unpaid, setUnpaid] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     rideApi.myActive().then((r) => setActive(r.data)).catch(() => {});
+    rideApi.myUnpaid().then((r) => setUnpaid(r.data)).catch(() => {});
   }, []);
+
+  const canBook = !unpaid;
 
   return (
     <div className="space-y-4">
@@ -24,13 +29,25 @@ export default function RiderHomePage() {
 
       <Card>
         <div className="flex items-center gap-3 mb-3">
-          <span className="w-10 h-10 rounded-full bg-brand-light grid place-items-center text-xl">🚖</span>
+          <span className="w-10 h-10 rounded-full bg-brand-light grid place-items-center text-xl">
+            {canBook ? '🚖' : '💳'}
+          </span>
           <div>
-            <p className="font-semibold">Book a ride</p>
-            <p className="text-xs text-slate-500">Pickup & drop, find a driver in seconds</p>
+            <p className="font-semibold">{canBook ? 'Book a ride' : 'Pending payment'}</p>
+            <p className="text-xs text-slate-500">
+              {canBook
+                ? 'Pickup & drop, find a driver in seconds'
+                : 'Clear your last fare to book again'}
+            </p>
           </div>
         </div>
-        <Link to="/rider/find"><Button className="w-full">Book Ride</Button></Link>
+        {canBook ? (
+          <Link to="/rider/find"><Button className="w-full">Book Ride</Button></Link>
+        ) : (
+          <Button className="w-full" onClick={() => navigate(`/rider/pay/${unpaid.id}`)}>
+            Pay {formatCurrency(unpaid.fare)}
+          </Button>
+        )}
       </Card>
 
       {active && (

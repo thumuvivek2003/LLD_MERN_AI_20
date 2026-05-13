@@ -12,6 +12,7 @@ router.use(authMiddleware);
 // Rider
 router.post('/', requireRole(ROLES.RIDER), validate(validateCreateRide), rideController.create);
 router.get('/me/active', requireRole(ROLES.RIDER), rideController.myActive);
+router.get('/me/unpaid', requireRole(ROLES.RIDER), rideController.myUnpaid);
 router.get('/me/history', requireRole(ROLES.RIDER), rideController.myHistory);
 
 // Driver

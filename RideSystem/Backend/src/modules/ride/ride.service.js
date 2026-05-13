@@ -24,6 +24,14 @@ class RideService extends BaseService {
     const active = await this.repository.findActiveByRider(riderId);
     if (active) throw new RideError('You already have an active ride', 409);
 
+    const unpaid = await this.repository.findUnpaidByRider(riderId);
+    if (unpaid) {
+      throw new RideError(
+        `Please pay ₹${unpaid.fare} for your previous ride before booking again`,
+        402,
+      );
+    }
+
     const distanceKm = Number(haversineKm(pickup, drop).toFixed(2));
     const fare = calculateFare(distanceKm);
 
@@ -49,6 +57,13 @@ class RideService extends BaseService {
     const driverProfile = await driverService.getByUser(driverUserId);
     if (!driverProfile.activeVehicle) {
       throw new RideError('Register a vehicle before accepting rides', 400);
+    }
+    if (driverProfile.status === DRIVER_STATUS.OFFLINE) {
+      throw new RideError('Go online before accepting rides', 403);
+    }
+    const activeForDriver = await this.repository.findActiveByDriver(driverUserId);
+    if (activeForDriver) {
+      throw new RideError('Finish your current ride before accepting another', 409);
     }
     const updated = await this.repository.atomicAssignDriver(
       rideId,
@@ -147,6 +162,10 @@ class RideService extends BaseService {
 
   getActiveByRider(riderId) {
     return this.repository.findActiveByRider(riderId);
+  }
+
+  getUnpaidByRider(riderId) {
+    return this.repository.findUnpaidByRider(riderId);
   }
 
   getActiveByDriver(driverId) {

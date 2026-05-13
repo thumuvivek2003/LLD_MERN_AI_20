@@ -7,7 +7,7 @@ import { ROLE_HOME } from '../../../core/constants/roles.constants.js';
 
 export default function LoginForm() {
   const { signIn } = useAuth();
-  const { values, onChange, error, setError, loading, setLoading } = useAuthForm({ email: '', password: '' });
+  const { values, onChange, error, setError, loading, setLoading } = useAuthForm({ email: '', password: 'password123' });
   const navigate = useNavigate();
 
   const submit = async (e) => {

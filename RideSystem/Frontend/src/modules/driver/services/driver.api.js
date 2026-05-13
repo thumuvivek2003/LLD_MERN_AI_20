@@ -14,4 +14,5 @@ export const driverApi = {
   complete: (id) => apiClient.post(API.rides.complete(id)),
   cancel: (id) => apiClient.post(API.rides.cancel(id)),
   driverHistory: () => apiClient.get(API.rides.driverHistory),
+  receiveCash: (rideId) => apiClient.post(API.payments.receiveCash(rideId)),
 };

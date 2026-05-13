@@ -47,9 +47,17 @@ export default function PaymentPage() {
           selected={method === PAYMENT_METHOD.CASH} onClick={() => setMethod(PAYMENT_METHOD.CASH)} />
       </div>
 
-      <Button className="w-full" disabled={loading || !ride} onClick={pay}>
-        {loading ? 'Processing...' : `Pay ₹${ride?.fare ?? '—'}`}
-      </Button>
+      <div className="grid grid-cols-2 gap-3">
+        <Button variant="secondary" disabled={loading} onClick={() => {
+          toast.info('Payment cancelled', 'You can pay later from your home screen');
+          navigate('/rider');
+        }}>
+          Cancel
+        </Button>
+        <Button disabled={loading || !ride} onClick={pay}>
+          {loading ? 'Processing...' : `Pay ₹${ride?.fare ?? '—'}`}
+        </Button>
+      </div>
 
       <PaymentSuccessModal open={success} amount={ride?.fare} onClose={() => navigate('/rider/history')} />
     </div>

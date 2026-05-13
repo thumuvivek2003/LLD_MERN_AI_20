@@ -8,6 +8,11 @@ export const paymentController = {
     ApiResponse.created(res, payment, 'Payment successful');
   }),
 
+  receiveCash: asyncHandler(async (req, res) => {
+    const payment = await paymentService.receiveCash(req.params.rideId, req.user.id);
+    ApiResponse.ok(res, payment, 'Cash received');
+  }),
+
   forRide: asyncHandler(async (req, res) => {
     const p = await paymentService.getByRide(req.params.rideId);
     ApiResponse.ok(res, p);

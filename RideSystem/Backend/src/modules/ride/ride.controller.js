@@ -14,6 +14,11 @@ export const rideController = {
     ApiResponse.ok(res, ride ? RideMapper.toDto(ride) : null);
   }),
 
+  myUnpaid: asyncHandler(async (req, res) => {
+    const ride = await rideService.getUnpaidByRider(req.user.id);
+    ApiResponse.ok(res, ride ? RideMapper.toDto(ride) : null);
+  }),
+
   myHistory: asyncHandler(async (req, res) => {
     const rides = await rideService.listByRider(req.user.id);
     ApiResponse.ok(res, RideMapper.toList(rides));

@@ -18,6 +18,7 @@ export const API = {
   rides: {
     base: '/rides',
     myActive: '/rides/me/active',
+    myUnpaid: '/rides/me/unpaid',
     myHistory: '/rides/me/history',
     pending: '/rides/pending',
     driverHistory: '/rides/driver/history',
@@ -30,6 +31,7 @@ export const API = {
   },
   payments: {
     pay: (rideId) => `/payments/${rideId}`,
+    receiveCash: (rideId) => `/payments/${rideId}/receive-cash`,
     forRide: (rideId) => `/payments/ride/${rideId}`,
     driverEarnings: '/payments/driver/earnings',
   },

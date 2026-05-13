@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useRideHistory } from '../hooks/useRideHistory.js';
 import RiderRideHistoryList from '../components/RiderRideHistoryList.jsx';
 import Loader from '../../../core/components/ui/Loader.jsx';
+import { resolveRiderRoute } from '../utils/resolve-rider-route.js';
 
 export default function RideHistoryPage() {
   const { rides, loading } = useRideHistory();
@@ -30,7 +31,7 @@ export default function RideHistoryPage() {
         ))}
       </div>
       {loading ? <Loader label="Loading rides" /> :
-        <RiderRideHistoryList rides={filtered} onOpen={(r) => navigate(`/rider/ride/${r.id}`)} />}
+        <RiderRideHistoryList rides={filtered} onOpen={(r) => navigate(resolveRiderRoute(r))} />}
     </div>
   );
 }

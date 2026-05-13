@@ -1,8 +1,15 @@
 import RideStatusBadge from './RideStatusBadge.jsx';
+import Badge from '../ui/Badge.jsx';
 import { formatDate } from '../../utils/formatDate.js';
 import { formatCurrency } from '../../utils/formatCurrency.js';
+import { RIDE_STATUS } from '../../constants/ride.constants.js';
+import { PAYMENT_STATUS } from '../../constants/payment.constants.js';
 
 export default function RideCard({ ride, onClick }) {
+  const isUnpaid =
+    ride.status === RIDE_STATUS.COMPLETED &&
+    ride.paymentStatus === PAYMENT_STATUS.PENDING;
+
   return (
     <button onClick={onClick} className="w-full text-left card hover:shadow-md transition">
       <div className="flex items-start justify-between gap-3">
@@ -17,7 +24,11 @@ export default function RideCard({ ride, onClick }) {
         </div>
         <div className="text-right">
           <p className="font-bold">{formatCurrency(ride.fare)}</p>
-          <div className="mt-1"><RideStatusBadge status={ride.status} /></div>
+          <div className="mt-1">
+            {isUnpaid
+              ? <Badge tone="danger">Pay {formatCurrency(ride.fare)}</Badge>
+              : <RideStatusBadge status={ride.status} />}
+          </div>
         </div>
       </div>
     </button>
