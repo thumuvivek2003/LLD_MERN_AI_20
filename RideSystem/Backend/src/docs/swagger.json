@@ -1,0 +1,26 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Ride System API",
+    "version": "1.0.0",
+    "description": "MVP LLD-focused Uber-like ride booking backend"
+  },
+  "servers": [{ "url": "http://localhost:4000/api" }],
+  "paths": {
+    "/auth/register": { "post": { "summary": "Register user (RIDER/DRIVER/ADMIN)" } },
+    "/auth/login": { "post": { "summary": "Login" } },
+    "/users/me": { "get": { "summary": "Current user profile" } },
+    "/drivers/me": { "get": { "summary": "Driver profile" } },
+    "/drivers/status": { "put": { "summary": "Go online / offline" } },
+    "/drivers/location": { "put": { "summary": "Update driver location" } },
+    "/vehicles": { "post": { "summary": "Register vehicle" } },
+    "/rides": { "post": { "summary": "Rider creates ride" } },
+    "/rides/pending": { "get": { "summary": "Driver lists pending rides" } },
+    "/rides/{id}/accept": { "post": { "summary": "Driver accepts ride" } },
+    "/rides/{id}/arrive": { "post": { "summary": "Driver marks arrived" } },
+    "/rides/{id}/verify-otp": { "post": { "summary": "Driver verifies OTP, trip starts" } },
+    "/rides/{id}/complete": { "post": { "summary": "Driver completes trip" } },
+    "/payments/{rideId}": { "post": { "summary": "Rider pays (CASH/UPI/CARD)" } },
+    "/admin/dashboard": { "get": { "summary": "Admin metrics" } }
+  }
+}

@@ -1,0 +1,43 @@
+export const API = {
+  auth: {
+    login: '/auth/login',
+    register: '/auth/register',
+    logout: '/auth/logout',
+  },
+  users: { me: '/users/me' },
+  drivers: {
+    me: '/drivers/me',
+    status: '/drivers/status',
+    location: '/drivers/location',
+    online: '/drivers/online',
+  },
+  vehicles: {
+    base: '/vehicles',
+    me: '/vehicles/me',
+  },
+  rides: {
+    base: '/rides',
+    myActive: '/rides/me/active',
+    myHistory: '/rides/me/history',
+    pending: '/rides/pending',
+    driverHistory: '/rides/driver/history',
+    byId: (id) => `/rides/${id}`,
+    accept: (id) => `/rides/${id}/accept`,
+    arrive: (id) => `/rides/${id}/arrive`,
+    verifyOtp: (id) => `/rides/${id}/verify-otp`,
+    complete: (id) => `/rides/${id}/complete`,
+    cancel: (id) => `/rides/${id}/cancel`,
+  },
+  payments: {
+    pay: (rideId) => `/payments/${rideId}`,
+    forRide: (rideId) => `/payments/ride/${rideId}`,
+    driverEarnings: '/payments/driver/earnings',
+  },
+  admin: {
+    dashboard: '/admin/dashboard',
+    riders: '/admin/riders',
+    drivers: '/admin/drivers',
+    rides: '/admin/rides',
+    block: (userId) => `/admin/users/${userId}/block`,
+  },
+};

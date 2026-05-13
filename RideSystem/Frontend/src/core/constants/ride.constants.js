@@ -1,0 +1,19 @@
+export const RIDE_STATUS = Object.freeze({
+  REQUESTED: 'REQUESTED',
+  DRIVER_ASSIGNED: 'DRIVER_ASSIGNED',
+  DRIVER_ARRIVING: 'DRIVER_ARRIVING',
+  OTP_VERIFIED: 'OTP_VERIFIED',
+  IN_PROGRESS: 'IN_PROGRESS',
+  COMPLETED: 'COMPLETED',
+  CANCELLED: 'CANCELLED',
+});
+
+export const RIDE_STATUS_LABEL = {
+  REQUESTED: 'Searching driver',
+  DRIVER_ASSIGNED: 'Driver assigned',
+  DRIVER_ARRIVING: 'Driver arriving',
+  OTP_VERIFIED: 'OTP verified',
+  IN_PROGRESS: 'On trip',
+  COMPLETED: 'Completed',
+  CANCELLED: 'Cancelled',
+};
