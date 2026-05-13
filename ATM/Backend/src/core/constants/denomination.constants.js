@@ -1,0 +1,3 @@
+export const DENOMINATIONS = [2000, 500, 200, 100];
+
+export const MIN_WITHDRAW_MULTIPLE = 100;
