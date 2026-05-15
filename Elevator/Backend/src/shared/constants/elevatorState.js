@@ -1,0 +1,7 @@
+export const ELEVATOR_STATE = Object.freeze({
+  IDLE: "IDLE",
+  MOVING_UP: "MOVING_UP",
+  MOVING_DOWN: "MOVING_DOWN",
+  OPENING: "OPENING",
+  CLOSING: "CLOSING",
+});

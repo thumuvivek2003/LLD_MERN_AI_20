@@ -1,0 +1,5 @@
+export const SIMULATION_STATUS = {
+  RUNNING: 'RUNNING',
+  PAUSED: 'PAUSED',
+  STOPPED: 'STOPPED',
+};
