@@ -1,0 +1,10 @@
+export const NOTIFICATION_STATUS = Object.freeze({
+  QUEUED: 'QUEUED',
+  SENDING: 'SENDING',
+  SENT: 'SENT',
+  FAILED: 'FAILED',
+  RETRYING: 'RETRYING',
+  DEAD: 'DEAD',
+});
+
+export const NOTIFICATION_STATUS_VALUES = Object.values(NOTIFICATION_STATUS);

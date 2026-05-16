@@ -20,8 +20,8 @@ async function seed() {
 
   console.log("[seed] creating accounts...");
   const accounts = await AccountModel.insertMany([
-    { accountNumber: "ACC-SBI-001", holderName: "Arjun Sharma", bankCode: BANK_CODE.SBI, balance: 50000 },
-    { accountNumber: "ACC-HDFC-001", holderName: "Priya Patel", bankCode: BANK_CODE.HDFC, balance: 25000 },
+    { accountNumber: "ACC-SBI-001", holderName: "Arjun Sharma", bankCode: BANK_CODE.SBI, balance: 50010 },
+    { accountNumber: "ACC-HDFC-001", holderName: "Priya Patel", bankCode: BANK_CODE.HDFC, balance: 25001 },
     { accountNumber: "ACC-ICICI-001", holderName: "Rahul Verma", bankCode: BANK_CODE.ICICI, balance: 100000 },
   ]);
 

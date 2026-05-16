@@ -1,0 +1,14 @@
+/* Theme tokens — keep Tailwind primary but expose CSS vars
+   for places that can't use class names (e.g. SVGs). */
+:root {
+  --color-brand-500: #6366f1;
+  --color-brand-600: #4f46e5;
+  --color-brand-700: #4338ca;
+  --color-status-sent: #16a34a;
+  --color-status-failed: #dc2626;
+  --color-status-queued: #f59e0b;
+  --color-status-retrying: #f59e0b;
+  --color-status-sending: #64748b;
+  --color-status-dead: #7f1d1d;
+  --radius-card: 1rem;
+}

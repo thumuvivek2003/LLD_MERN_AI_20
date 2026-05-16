@@ -20,7 +20,7 @@ npm run seed
 npm run dev
 ```
 
-Server starts on `http://localhost:5000`.
+Server starts on `http://localhost:5001`.
 
 ## Demo cards
 
@@ -53,7 +53,7 @@ Session expires after `SESSION_TIMEOUT_MS` (60s default) of inactivity; any oper
 `.env`:
 
 ```
-PORT=5000
+PORT=5001
 MONGO_URI=mongodb://127.0.0.1:27017/atm_mvp
 SESSION_TIMEOUT_MS=60000
 MAX_PIN_ATTEMPTS=3

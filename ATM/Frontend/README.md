@@ -16,7 +16,7 @@ Frontend runs at `http://localhost:5173`.
 `.env` already contains:
 
 ```
-VITE_API_URL=http://localhost:5000/api/atm
+VITE_API_URL=http://localhost:5001/api/atm
 ```
 
 Make sure the backend (Node/Express + Mongo) is running at that URL.
