@@ -1,0 +1,18 @@
+export const ROUTES = {
+  LOGIN: '/login',
+  VERIFY: '/verify',
+  CHATS: '/chats',
+  CHAT_DETAIL: (chatId) => `/chats/${chatId}`,
+  CONTACTS: '/contacts',
+  NEW_CHAT: '/new-chat',
+  NEW_GROUP: '/group/new',
+  GROUP_INFO: (chatId) => `/group/${chatId}/info`,
+  PROFILE: '/profile',
+  SETTINGS: '/settings',
+  MESSAGE_STATUS: (messageId) => `/messages/${messageId}/status`,
+  ADMIN: '/admin',
+  ADMIN_USERS: '/admin/users',
+  ADMIN_USER_DETAIL: (id) => `/admin/users/${id}`,
+  ADMIN_GROUPS: '/admin/groups',
+  ADMIN_SETTINGS: '/admin/settings',
+};
