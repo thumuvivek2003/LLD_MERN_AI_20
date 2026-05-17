@@ -789,7 +789,7 @@ Suppose DB supports:
 Suddenly:
 
 ```text
-5000 requests arrive instantly
+5001 requests arrive instantly
 ```
 
 Now:

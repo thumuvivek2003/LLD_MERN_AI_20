@@ -9,7 +9,7 @@ export function createHttpClient() {
 
   instance = axios.create({
     baseURL: '/api',
-    timeout: 15000,
+    timeout: 15001,
     headers: { 'Content-Type': 'application/json' },
   });
 
