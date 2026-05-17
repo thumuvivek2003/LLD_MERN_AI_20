@@ -1,0 +1,78 @@
+@import './theme.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-slate-50 text-slate-800 antialiased;
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+@layer components {
+  .card {
+    @apply rounded-xl bg-white shadow-card border border-slate-100;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn bg-brand-600 text-white hover:bg-brand-700;
+  }
+
+  .btn-secondary {
+    @apply btn bg-slate-100 text-slate-700 hover:bg-slate-200;
+  }
+
+  .btn-danger {
+    @apply btn bg-red-500 text-white hover:bg-red-600;
+  }
+
+  .btn-ghost {
+    @apply btn text-slate-600 hover:bg-slate-100;
+  }
+
+  .input {
+    @apply w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm placeholder:text-slate-400 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100;
+  }
+
+  .label {
+    @apply block text-xs font-medium text-slate-600 mb-1;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+
+  .badge-open {
+    @apply badge bg-emerald-100 text-emerald-700;
+  }
+
+  .badge-scheduled {
+    @apply badge bg-amber-100 text-amber-700;
+  }
+
+  .badge-closed {
+    @apply badge bg-slate-200 text-slate-600;
+  }
+
+  .badge-cancelled {
+    @apply badge bg-red-100 text-red-700;
+  }
+
+  .sidebar-link {
+    @apply flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-slate-300 hover:bg-sidebarMuted hover:text-white transition-colors;
+  }
+
+  .sidebar-link-active {
+    @apply bg-brand-600 text-white hover:bg-brand-600;
+  }
+}
