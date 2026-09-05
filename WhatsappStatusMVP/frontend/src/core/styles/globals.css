@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, #0f2a25 0%, transparent 60%),
+    radial-gradient(1000px 500px at 110% 10%, #12211d 0%, transparent 55%),
+    #0a0f12;
+  color: #E9EDEF;
+}
+
+/* Hide scrollbars inside the phone frame for a native feel */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ── Status background gradients (keys shared with the backend) ─────────── */
+.bg-status-teal    { background: linear-gradient(135deg, #0f5c52, #1aa08a); }
+.bg-status-maroon  { background: linear-gradient(135deg, #4a1526, #7a2140); }
+.bg-status-indigo  { background: linear-gradient(135deg, #23255c, #4b3fb0); }
+.bg-status-sunset  { background: linear-gradient(135deg, #7a2e1e, #d9762f); }
+.bg-status-forest  { background: linear-gradient(135deg, #14331f, #2f8f4e); }
+.bg-status-slate   { background: linear-gradient(135deg, #1f2933, #47586b); }
+.bg-status-purple  { background: linear-gradient(135deg, #3b1a5c, #8b3fd0); }
+.bg-status-ocean   { background: linear-gradient(135deg, #0b2b4a, #1f77c4); }
+
+/* WhatsApp doodle chat wallpaper for headers/empty screens */
+.wa-doodle {
+  background-color: #0b141a;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23223' stroke-width='1.4' opacity='0.5'%3E%3Ccircle cx='20' cy='20' r='8'/%3E%3Cpath d='M60 12 l6 10 -12 0 z'/%3E%3Crect x='84' y='14' width='14' height='14' rx='3'/%3E%3Cpath d='M14 70 q10 -12 20 0'/%3E%3Ccircle cx='92' cy='78' r='6'/%3E%3Cpath d='M52 66 h16 v12 h-16 z'/%3E%3C/g%3E%3C/svg%3E");
+}
