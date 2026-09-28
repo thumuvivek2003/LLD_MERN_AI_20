@@ -44,10 +44,11 @@ export function LookupBuilder({ lookup, onChange, errors = {}, excludeObjectId }
 
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label className="mf-label">
+          <label className="mf-label" htmlFor="lookupbuilder-related-object">
             Related Object <span className="text-rose-500">*</span>
           </label>
           <Select
+            id="lookupbuilder-related-object"
             value={lookup?.objectId ?? ''}
             invalid={Boolean(errors.lookupObject)}
             placeholder="Select object"
@@ -60,10 +61,11 @@ export function LookupBuilder({ lookup, onChange, errors = {}, excludeObjectId }
         </div>
 
         <div>
-          <label className="mf-label">
+          <label className="mf-label" htmlFor="lookupbuilder-display-field">
             Display Field <span className="text-rose-500">*</span>
           </label>
           <Select
+            id="lookupbuilder-display-field"
             value={lookup?.displayFieldId ?? ''}
             invalid={Boolean(errors.lookupDisplay)}
             placeholder={lookup?.objectId ? 'Select field' : 'Choose an object first'}
@@ -75,8 +77,9 @@ export function LookupBuilder({ lookup, onChange, errors = {}, excludeObjectId }
         </div>
 
         <div className="sm:col-span-2">
-          <label className="mf-label">On Delete</label>
+          <label className="mf-label" htmlFor="lookupbuilder-on-delete">On Delete</label>
           <Select
+            id="lookupbuilder-on-delete"
             value={lookup?.onDelete ?? LOOKUP_ON_DELETE.RESTRICT}
             onChange={(event) => patch({ onDelete: event.target.value })}
             options={[

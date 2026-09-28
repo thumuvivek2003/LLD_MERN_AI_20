@@ -76,8 +76,9 @@ export function ReportsPage() {
       <Card className="mb-5">
         <div className="grid gap-4 p-4 sm:grid-cols-3">
           <div>
-            <label className="mf-label">Object</label>
+            <label className="mf-label" htmlFor="reportspage-object">Object</label>
             <Select
+              id="reportspage-object"
               value={objectId}
               onChange={(event) => setObjectId(event.target.value)}
               options={objects.map((item) => ({
@@ -87,8 +88,9 @@ export function ReportsPage() {
             />
           </div>
           <div>
-            <label className="mf-label">Group by</label>
+            <label className="mf-label" htmlFor="reportspage-group-by">Group by</label>
             <Select
+              id="reportspage-group-by"
               value={groupFieldId}
               placeholder={groups.length ? 'Select field' : 'No groupable fields'}
               disabled={!groups.length}
@@ -97,8 +99,9 @@ export function ReportsPage() {
             />
           </div>
           <div>
-            <label className="mf-label">Measure</label>
+            <label className="mf-label" htmlFor="reportspage-measure">Measure</label>
             <Select
+              id="reportspage-measure"
               value={measureFieldId}
               placeholder="Count of records"
               onChange={(event) => setMeasureFieldId(event.target.value)}

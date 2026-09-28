@@ -16,7 +16,7 @@ export default {
   defaultValue: () => '',
   coerce: (value) => (value === null || value === undefined ? '' : String(value)),
   validators: [],
-  Input: ({ field, value, onChange, invalid, disabled }) => (
+  Input: ({ field, value, onChange, invalid, disabled, context: _context, ...rest }) => (
     <Textarea
       rows={4}
       value={value ?? ''}
@@ -24,6 +24,7 @@ export default {
       disabled={disabled}
       placeholder={`Enter ${field.label.toLowerCase()}`}
       onChange={(event) => onChange(event.target.value)}
+      {...rest}
     />
   ),
   Display: ({ value }) =>

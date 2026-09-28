@@ -17,9 +17,15 @@ export default {
   defaultValue: () => false,
   coerce: asBool,
   validators: [],
-  Input: ({ value, onChange, disabled }) => (
+  Input: ({ field, value, onChange, disabled, 'aria-labelledby': labelledBy }) => (
     <div className="flex h-9 items-center gap-2.5">
-      <Toggle checked={asBool(value)} onChange={onChange} disabled={disabled} />
+      <Toggle
+        checked={asBool(value)}
+        onChange={onChange}
+        disabled={disabled}
+        label={field?.label}
+        aria-labelledby={labelledBy}
+      />
       <span className="text-sm text-slate-600">{asBool(value) ? 'Yes' : 'No'}</span>
     </div>
   ),

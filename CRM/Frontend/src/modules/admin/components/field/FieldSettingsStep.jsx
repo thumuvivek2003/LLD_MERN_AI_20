@@ -81,8 +81,9 @@ export function FieldSettingsStep({ draft, onChange, errors = {}, objectId }) {
 
       {!isPicklist && draft.type !== FIELD_TYPE.LOOKUP && (
         <div>
-          <label className="mf-label">Default Value</label>
+          <label className="mf-label" htmlFor="fieldsettingsstep-default-value">Default Value</label>
           <Input
+            id="fieldsettingsstep-default-value"
             value={draft.defaultValue ?? ''}
             placeholder="Leave blank for no default"
             onChange={(event) => patch({ defaultValue: event.target.value })}

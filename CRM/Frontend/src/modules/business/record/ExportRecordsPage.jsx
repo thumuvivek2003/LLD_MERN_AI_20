@@ -93,8 +93,9 @@ export function ExportRecordsPage() {
       <Card className="max-w-2xl">
         <div className="space-y-5 p-5">
           <div>
-            <label className="mf-label">Format</label>
+            <label className="mf-label" htmlFor="exportrecordspage-format">Format</label>
             <Select
+              id="exportrecordspage-format"
               value={format}
               onChange={(event) => setFormat(event.target.value)}
               options={[

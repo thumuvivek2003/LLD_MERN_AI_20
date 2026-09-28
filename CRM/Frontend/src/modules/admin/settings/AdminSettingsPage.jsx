@@ -72,8 +72,9 @@ export function AdminSettingsPage() {
             <CardHeader title="Engine" subtitle="How metadata operations execute" icon={Database} />
             <div className="space-y-4 p-5">
               <div>
-                <label className="mf-label">Indexing Mode</label>
+                <label className="mf-label" htmlFor="adminsettingspage-indexing-mode">Indexing Mode</label>
                 <Select
+                  id="adminsettingspage-indexing-mode"
                   value={draft.indexingMode ?? 'ASYNC'}
                   onChange={(event) => patch({ indexingMode: event.target.value })}
                   options={[
@@ -84,16 +85,18 @@ export function AdminSettingsPage() {
               </div>
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
-                  <label className="mf-label">Cache TTL (seconds)</label>
+                  <label className="mf-label" htmlFor="adminsettingspage-cache-ttl-seconds">Cache TTL (seconds)</label>
                   <Input
+                    id="adminsettingspage-cache-ttl-seconds"
                     type="number"
                     value={draft.cacheTtlSeconds ?? ''}
                     onChange={(event) => patch({ cacheTtlSeconds: event.target.value })}
                   />
                 </div>
                 <div>
-                  <label className="mf-label">Max Bulk Size</label>
+                  <label className="mf-label" htmlFor="adminsettingspage-max-bulk-size">Max Bulk Size</label>
                   <Input
+                    id="adminsettingspage-max-bulk-size"
                     type="number"
                     value={draft.maxBulkSize ?? ''}
                     onChange={(event) => patch({ maxBulkSize: event.target.value })}
@@ -101,8 +104,9 @@ export function AdminSettingsPage() {
                 </div>
               </div>
               <div>
-                <label className="mf-label">Audit Retention (days)</label>
+                <label className="mf-label" htmlFor="adminsettingspage-audit-retention-days">Audit Retention (days)</label>
                 <Input
+                  id="adminsettingspage-audit-retention-days"
                   type="number"
                   value={draft.auditRetentionDays ?? ''}
                   onChange={(event) => patch({ auditRetentionDays: event.target.value })}

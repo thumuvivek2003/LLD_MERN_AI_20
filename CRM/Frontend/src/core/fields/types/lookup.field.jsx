@@ -19,8 +19,9 @@ export default {
   defaultValue: () => null,
   coerce: (value) => value || null,
   validators: [],
-  Input: ({ field, value, onChange, disabled, invalid, context }) => (
+  Input: ({ field, value, onChange, disabled, invalid, context, 'aria-labelledby': labelledBy }) => (
     <LookupPicker
+      aria-labelledby={labelledBy}
       targetObjectId={field.lookup?.objectId}
       value={value}
       displayName={context?.resolved?.[field.fieldId]?.displayName}

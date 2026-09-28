@@ -15,13 +15,14 @@ const toLocalInput = (value) => {
   return new Date(date.getTime() - offset).toISOString().slice(0, 16);
 };
 
-const DateTimeInput = ({ value, onChange, invalid, disabled }) => (
+const DateTimeInput = ({ value, onChange, invalid, disabled, field: _field, context: _context, ...rest }) => (
   <Input
     type="datetime-local"
     value={toLocalInput(value)}
     invalid={invalid}
     disabled={disabled}
     onChange={(event) => onChange(event.target.value)}
+    {...rest}
   />
 );
 

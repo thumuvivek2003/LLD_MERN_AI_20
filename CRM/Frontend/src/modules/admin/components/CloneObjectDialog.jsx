@@ -58,8 +58,9 @@ export function CloneObjectDialog({ object, onClose, onCloned }) {
     >
       <div className="space-y-4">
         <div>
-          <label className="mf-label">New object label</label>
+          <label className="mf-label" htmlFor="cloneobjectdialog-new-object-label">New object label</label>
           <Input
+            id="cloneobjectdialog-new-object-label"
             value={label}
             onChange={(event) => {
               setLabel(event.target.value);
@@ -68,8 +69,8 @@ export function CloneObjectDialog({ object, onClose, onCloned }) {
           />
         </div>
         <div>
-          <label className="mf-label">New API name</label>
-          <Input value={apiName} onChange={(event) => setApiName(event.target.value)} />
+          <label className="mf-label" htmlFor="cloneobjectdialog-new-api-name">New API name</label>
+          <Input id="cloneobjectdialog-new-api-name" value={apiName} onChange={(event) => setApiName(event.target.value)} />
         </div>
         <div className="flex items-center justify-between rounded-lg bg-slate-50 px-3 py-2.5">
           <div>

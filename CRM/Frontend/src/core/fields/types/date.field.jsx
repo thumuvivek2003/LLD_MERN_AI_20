@@ -13,13 +13,14 @@ export const toDateInput = (value) => {
   return Number.isNaN(date.getTime()) ? String(value).slice(0, 10) : date.toISOString().slice(0, 10);
 };
 
-const DateInput = ({ value, onChange, invalid, disabled }) => (
+const DateInput = ({ value, onChange, invalid, disabled, field: _field, context: _context, ...rest }) => (
   <Input
     type="date"
     value={toDateInput(value)}
     invalid={invalid}
     disabled={disabled}
     onChange={(event) => onChange(event.target.value)}
+    {...rest}
   />
 );
 

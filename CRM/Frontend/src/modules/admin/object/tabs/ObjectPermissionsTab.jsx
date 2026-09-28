@@ -71,8 +71,9 @@ export function ObjectPermissionsTab({ object }) {
     <div className="space-y-5">
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div className="w-64">
-          <label className="mf-label">Role</label>
+          <label className="mf-label" htmlFor="objectpermissionstab-role">Role</label>
           <Select
+            id="objectpermissionstab-role"
             value={roleId}
             onChange={(event) => setRoleId(event.target.value)}
             options={roleList.map((role) => ({ value: role.roleId, label: role.name }))}

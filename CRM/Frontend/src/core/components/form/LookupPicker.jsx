@@ -17,6 +17,7 @@ export function LookupPicker({
   disabled,
   invalid,
   placeholder = 'Search records…',
+  'aria-labelledby': labelledBy,
 }) {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
@@ -68,6 +69,9 @@ export function LookupPicker({
     <div className="relative" ref={ref}>
       <button
         type="button"
+        aria-labelledby={labelledBy}
+        aria-haspopup="listbox"
+        aria-expanded={open}
         disabled={disabled || !targetObjectId}
         onClick={() => setOpen((v) => !v)}
         className={cx(

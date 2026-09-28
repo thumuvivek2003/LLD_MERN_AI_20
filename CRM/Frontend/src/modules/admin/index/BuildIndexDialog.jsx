@@ -78,8 +78,9 @@ export function BuildIndexDialog({ open, onClose, onBuilt, defaultObjectId }) {
     >
       <div className="space-y-4">
         <div>
-          <label className="mf-label">Object</label>
+          <label className="mf-label" htmlFor="buildindexdialog-object">Object</label>
           <Select
+            id="buildindexdialog-object"
             value={objectId}
             placeholder="Select object"
             onChange={(event) => setObjectId(event.target.value)}
@@ -87,8 +88,9 @@ export function BuildIndexDialog({ open, onClose, onBuilt, defaultObjectId }) {
           />
         </div>
         <div>
-          <label className="mf-label">Field</label>
+          <label className="mf-label" htmlFor="buildindexdialog-field">Field</label>
           <Select
+            id="buildindexdialog-field"
             value={fieldId}
             placeholder={objectId ? 'Select field' : 'Choose an object first'}
             disabled={!objectId}
@@ -97,8 +99,9 @@ export function BuildIndexDialog({ open, onClose, onBuilt, defaultObjectId }) {
           />
         </div>
         <div>
-          <label className="mf-label">Index Type</label>
+          <label className="mf-label" htmlFor="buildindexdialog-index-type">Index Type</label>
           <Select
+            id="buildindexdialog-index-type"
             value={type}
             placeholder={
               suggested ? `Auto — ${INDEX_TYPE_LABEL[suggested]}` : 'Auto (chosen by field type)'

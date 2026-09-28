@@ -186,8 +186,9 @@ export function BulkOperationsPage() {
             {action === 'UPDATE' && (
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
-                  <label className="mf-label">Update Field</label>
+                  <label className="mf-label" htmlFor="bulkoperationspage-update-field">Update Field</label>
                   <Select
+                    id="bulkoperationspage-update-field"
                     value={fieldId}
                     placeholder="Select field"
                     onChange={(event) => {

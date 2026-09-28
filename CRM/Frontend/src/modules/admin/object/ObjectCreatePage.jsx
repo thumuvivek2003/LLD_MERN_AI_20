@@ -102,10 +102,11 @@ export function ObjectCreatePage() {
         {step === 0 && (
           <div className="space-y-4">
             <div>
-              <label className="mf-label">
+              <label className="mf-label" htmlFor="objectcreatepage-object-label">
                 Object Label <span className="text-rose-500">*</span>
               </label>
               <Input
+                id="objectcreatepage-object-label"
                 autoFocus
                 value={draft.label}
                 invalid={Boolean(errors.label)}
@@ -116,10 +117,11 @@ export function ObjectCreatePage() {
             </div>
 
             <div>
-              <label className="mf-label">
+              <label className="mf-label" htmlFor="objectcreatepage-object-api-name">
                 Object API Name <span className="text-rose-500">*</span>
               </label>
               <Input
+                id="objectcreatepage-object-api-name"
                 value={draft.apiName}
                 invalid={Boolean(errors.apiName)}
                 placeholder="customer"
@@ -129,8 +131,9 @@ export function ObjectCreatePage() {
             </div>
 
             <div>
-              <label className="mf-label">Plural Label</label>
+              <label className="mf-label" htmlFor="objectcreatepage-plural-label">Plural Label</label>
               <Input
+                id="objectcreatepage-plural-label"
                 value={draft.pluralLabel}
                 placeholder="Customers"
                 onChange={(event) => patch({ pluralLabel: event.target.value, pluralTouched: true })}
@@ -138,8 +141,9 @@ export function ObjectCreatePage() {
             </div>
 
             <div>
-              <label className="mf-label">Description</label>
+              <label className="mf-label" htmlFor="objectcreatepage-description">Description</label>
               <Textarea
+                id="objectcreatepage-description"
                 rows={3}
                 value={draft.description}
                 placeholder="Stores customer related information"

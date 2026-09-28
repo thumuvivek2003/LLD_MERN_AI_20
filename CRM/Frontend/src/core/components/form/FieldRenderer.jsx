@@ -1,3 +1,4 @@
+import { useId } from 'react';
 import { getFieldType } from '../../fields/registry.js';
 import cx from '../../utils/cx.js';
 import ValidationMessage, { HelpText } from './ValidationMessage.jsx';
@@ -24,8 +25,14 @@ export function FieldRenderer({
   hideLabel = false,
   className,
 }) {
+  const autoId = useId();
   if (!field) return null;
   const strategy = getFieldType(field.type);
+  // One id pair per rendered field so the <label> and its control are
+  // programmatically associated. Custom widgets (toggle, lookup, chips) are not
+  // labelable elements, so they receive `aria-labelledby` instead.
+  const controlId = `mf-${autoId}-${field.fieldId}`;
+  const labelId = `${controlId}-label`;
 
   if (mode === 'display') {
     const Display = strategy.Display;
@@ -50,7 +57,7 @@ export function FieldRenderer({
     const Display = strategy.Display;
     return (
       <div className={className}>
-        {!hideLabel && <FieldLabel field={field} readOnly />}
+        {!hideLabel && <FieldLabel field={field} readOnly id={labelId} />}
         <div className="flex min-h-9 items-center rounded-lg bg-slate-50 px-3 py-2 text-sm text-slate-600 ring-1 ring-inset ring-slate-100">
           <Display field={field} value={value} context={context} />
         </div>
@@ -62,7 +69,7 @@ export function FieldRenderer({
   const Input = strategy.Input;
   return (
     <div className={className}>
-      {!hideLabel && <FieldLabel field={field} />}
+      {!hideLabel && <FieldLabel field={field} id={labelId} htmlFor={controlId} />}
       <Input
         field={field}
         value={value}
@@ -70,6 +77,9 @@ export function FieldRenderer({
         invalid={Boolean(error)}
         disabled={disabled}
         context={context}
+        id={controlId}
+        aria-labelledby={hideLabel ? undefined : labelId}
+        aria-invalid={error ? true : undefined}
       />
       <ValidationMessage message={error} />
       {!error && <HelpText text={field.helpText} />}
@@ -77,11 +87,11 @@ export function FieldRenderer({
   );
 }
 
-export function FieldLabel({ field, readOnly = false }) {
+export function FieldLabel({ field, readOnly = false, id, htmlFor }) {
   const strategy = getFieldType(field.type);
   const Icon = strategy.icon;
   return (
-    <label className={cx('mf-label flex items-center gap-1.5')}>
+    <label id={id} htmlFor={htmlFor} className={cx('mf-label flex items-center gap-1.5')}>
       <Icon size={12} className="text-slate-400" />
       {field.label}
       {field.required && !readOnly && <span className="text-rose-500">*</span>}

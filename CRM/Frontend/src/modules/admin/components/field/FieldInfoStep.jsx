@@ -17,10 +17,11 @@ export function FieldInfoStep({ draft, onChange, errors = {}, lockType = false }
   return (
     <div className="space-y-4">
       <div>
-        <label className="mf-label">
+        <label className="mf-label" htmlFor="fieldinfostep-field-label">
           Field Label <span className="text-rose-500">*</span>
         </label>
         <Input
+          id="fieldinfostep-field-label"
           autoFocus
           value={draft.label}
           invalid={Boolean(errors.label)}
@@ -36,10 +37,11 @@ export function FieldInfoStep({ draft, onChange, errors = {}, lockType = false }
       </div>
 
       <div>
-        <label className="mf-label">
+        <label className="mf-label" htmlFor="fieldinfostep-field-api-name">
           Field API Name <span className="text-rose-500">*</span>
         </label>
         <Input
+          id="fieldinfostep-field-api-name"
           value={draft.apiName}
           invalid={Boolean(errors.apiName)}
           placeholder="customerName"
@@ -49,10 +51,11 @@ export function FieldInfoStep({ draft, onChange, errors = {}, lockType = false }
       </div>
 
       <div>
-        <label className="mf-label">
+        <label className="mf-label" htmlFor="fieldinfostep-field-type">
           Field Type <span className="text-rose-500">*</span>
         </label>
         <Select
+          id="fieldinfostep-field-type"
           value={draft.type}
           disabled={lockType}
           invalid={Boolean(errors.type)}
@@ -75,8 +78,9 @@ export function FieldInfoStep({ draft, onChange, errors = {}, lockType = false }
       </div>
 
       <div>
-        <label className="mf-label">Help Text</label>
+        <label className="mf-label" htmlFor="fieldinfostep-help-text">Help Text</label>
         <Input
+          id="fieldinfostep-help-text"
           value={draft.helpText}
           placeholder="Shown under the input on record forms"
           onChange={(event) => patch({ helpText: event.target.value })}

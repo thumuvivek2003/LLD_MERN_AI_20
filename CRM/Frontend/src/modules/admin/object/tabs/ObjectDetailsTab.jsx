@@ -43,10 +43,11 @@ export function ObjectDetailsTab({ object, onSaved }) {
     <div className="grid gap-6 lg:grid-cols-[1fr_260px]">
       <div className="space-y-4">
         <div>
-          <label className="mf-label">
+          <label className="mf-label" htmlFor="objectdetailstab-object-label">
             Object Label <span className="text-rose-500">*</span>
           </label>
           <Input
+            id="objectdetailstab-object-label"
             value={draft.label ?? ''}
             invalid={Boolean(errors.label)}
             onChange={(event) => patch({ label: event.target.value })}
@@ -55,8 +56,9 @@ export function ObjectDetailsTab({ object, onSaved }) {
         </div>
 
         <div>
-          <label className="mf-label">Description</label>
+          <label className="mf-label" htmlFor="objectdetailstab-description">Description</label>
           <Textarea
+            id="objectdetailstab-description"
             rows={3}
             value={draft.description ?? ''}
             onChange={(event) => patch({ description: event.target.value })}
@@ -65,13 +67,14 @@ export function ObjectDetailsTab({ object, onSaved }) {
 
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
-            <label className="mf-label">API Name</label>
-            <Input value={draft.apiName ?? ''} disabled />
+            <label className="mf-label" htmlFor="objectdetailstab-api-name">API Name</label>
+            <Input id="objectdetailstab-api-name" value={draft.apiName ?? ''} disabled />
             <p className="mt-1.5 text-[11px] text-slate-400">Immutable once the object exists.</p>
           </div>
           <div>
-            <label className="mf-label">Primary Display Field</label>
+            <label className="mf-label" htmlFor="objectdetailstab-primary-display-field">Primary Display Field</label>
             <Select
+              id="objectdetailstab-primary-display-field"
               value={draft.primaryDisplayFieldId ?? ''}
               placeholder="Select field"
               onChange={(event) => patch({ primaryDisplayFieldId: event.target.value })}

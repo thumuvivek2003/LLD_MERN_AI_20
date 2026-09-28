@@ -53,8 +53,9 @@ export function SaveViewDialog({ open, onClose, builder, onSaved }) {
     >
       <div className="space-y-4">
         <div>
-          <label className="mf-label">View name</label>
+          <label className="mf-label" htmlFor="saveviewdialog-view-name">View name</label>
           <Input
+            id="saveviewdialog-view-name"
             autoFocus
             value={name}
             placeholder="High Value Customers"

@@ -10,7 +10,7 @@ export const optionsOf = (field) =>
     typeof option === 'string' ? { value: option, label: option } : option,
   );
 
-const PicklistSelect = ({ field, value, onChange, invalid, disabled }) => (
+const PicklistSelect = ({ field, value, onChange, invalid, disabled, context: _context, ...rest }) => (
   <Select
     value={value ?? ''}
     invalid={invalid}
@@ -18,6 +18,7 @@ const PicklistSelect = ({ field, value, onChange, invalid, disabled }) => (
     placeholder={`Select ${field.label.toLowerCase()}`}
     onChange={(event) => onChange(event.target.value)}
     options={optionsOf(field)}
+    {...rest}
   />
 );
 

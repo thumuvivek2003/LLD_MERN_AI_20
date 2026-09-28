@@ -87,16 +87,18 @@ export function FieldValidationStep({ draft, onChange, errors = {} }) {
           </p>
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
-              <label className="mf-label">Minimum length</label>
+              <label className="mf-label" htmlFor="fieldvalidationstep-minimum-length">Minimum length</label>
               <Input
+                id="fieldvalidationstep-minimum-length"
                 type="number"
                 value={draft.validation?.minLength ?? ''}
                 onChange={(event) => patchValidation({ minLength: event.target.value })}
               />
             </div>
             <div>
-              <label className="mf-label">Maximum length</label>
+              <label className="mf-label" htmlFor="fieldvalidationstep-maximum-length">Maximum length</label>
               <Input
+                id="fieldvalidationstep-maximum-length"
                 type="number"
                 value={draft.validation?.maxLength ?? ''}
                 onChange={(event) => patchValidation({ maxLength: event.target.value })}
@@ -113,16 +115,18 @@ export function FieldValidationStep({ draft, onChange, errors = {} }) {
           </p>
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
-              <label className="mf-label">Minimum</label>
+              <label className="mf-label" htmlFor="fieldvalidationstep-minimum">Minimum</label>
               <Input
+                id="fieldvalidationstep-minimum"
                 type="number"
                 value={draft.validation?.min ?? ''}
                 onChange={(event) => patchValidation({ min: event.target.value })}
               />
             </div>
             <div>
-              <label className="mf-label">Maximum</label>
+              <label className="mf-label" htmlFor="fieldvalidationstep-maximum">Maximum</label>
               <Input
+                id="fieldvalidationstep-maximum"
                 type="number"
                 value={draft.validation?.max ?? ''}
                 onChange={(event) => patchValidation({ max: event.target.value })}

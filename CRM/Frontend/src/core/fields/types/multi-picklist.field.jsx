@@ -8,7 +8,7 @@ import { optionsOf } from './picklist.field.jsx';
 
 const toArray = (value) => (Array.isArray(value) ? value : value ? [value] : []);
 
-const ChipPicker = ({ field, value, onChange, disabled }) => {
+const ChipPicker = ({ field, value, onChange, disabled, 'aria-labelledby': labelledBy }) => {
   const selected = toArray(value);
   const toggle = (optionValue) =>
     onChange(
@@ -23,7 +23,11 @@ const ChipPicker = ({ field, value, onChange, disabled }) => {
   }
 
   return (
-    <div className="flex flex-wrap gap-1.5 rounded-lg border border-slate-200 bg-white p-2">
+    <div
+      role="group"
+      aria-labelledby={labelledBy}
+      className="flex flex-wrap gap-1.5 rounded-lg border border-slate-200 bg-white p-2"
+    >
       {options.map((option) => {
         const active = selected.includes(option.value);
         return (

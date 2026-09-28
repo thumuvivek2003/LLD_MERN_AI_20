@@ -144,8 +144,9 @@ export function BulkActionsPage() {
           <Card className="p-5">
             <div className="grid items-end gap-4 sm:grid-cols-3">
               <div>
-                <label className="mf-label">Action</label>
+                <label className="mf-label" htmlFor="bulkactionspage-action">Action</label>
                 <Select
+                  id="bulkactionspage-action"
                   value={action}
                   onChange={(event) => setAction(event.target.value)}
                   options={ACTIONS.map((option) => ({ value: option.value, label: option.label }))}
@@ -154,8 +155,9 @@ export function BulkActionsPage() {
               {action === 'UPDATE' && (
                 <>
                   <div>
-                    <label className="mf-label">Field</label>
+                    <label className="mf-label" htmlFor="bulkactionspage-field">Field</label>
                     <Select
+                      id="bulkactionspage-field"
                       value={fieldId}
                       placeholder="Select field"
                       onChange={(event) => {

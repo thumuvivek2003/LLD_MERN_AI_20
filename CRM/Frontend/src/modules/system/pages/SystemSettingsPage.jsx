@@ -72,8 +72,9 @@ export function SystemSettingsPage() {
             <CardHeader title="Runtime" subtitle="Engine behaviour" icon={Settings} />
             <div className="space-y-4 p-5">
               <div>
-                <label className="mf-label">Indexing Mode</label>
+                <label className="mf-label" htmlFor="systemsettingspage-indexing-mode">Indexing Mode</label>
                 <Select
+                  id="systemsettingspage-indexing-mode"
                   value={draft.indexingMode ?? 'ASYNC'}
                   onChange={(event) => patch({ indexingMode: event.target.value })}
                   options={[
@@ -84,16 +85,18 @@ export function SystemSettingsPage() {
               </div>
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
-                  <label className="mf-label">Cache TTL (seconds)</label>
+                  <label className="mf-label" htmlFor="systemsettingspage-cache-ttl-seconds">Cache TTL (seconds)</label>
                   <Input
+                    id="systemsettingspage-cache-ttl-seconds"
                     type="number"
                     value={draft.cacheTtlSeconds ?? ''}
                     onChange={(event) => patch({ cacheTtlSeconds: event.target.value })}
                   />
                 </div>
                 <div>
-                  <label className="mf-label">Max Bulk Size</label>
+                  <label className="mf-label" htmlFor="systemsettingspage-max-bulk-size">Max Bulk Size</label>
                   <Input
+                    id="systemsettingspage-max-bulk-size"
                     type="number"
                     value={draft.maxBulkSize ?? ''}
                     onChange={(event) => patch({ maxBulkSize: event.target.value })}
@@ -101,8 +104,9 @@ export function SystemSettingsPage() {
                 </div>
               </div>
               <div>
-                <label className="mf-label">Audit Retention (days)</label>
+                <label className="mf-label" htmlFor="systemsettingspage-audit-retention-days">Audit Retention (days)</label>
                 <Input
+                  id="systemsettingspage-audit-retention-days"
                   type="number"
                   value={draft.auditRetentionDays ?? ''}
                   onChange={(event) => patch({ auditRetentionDays: event.target.value })}

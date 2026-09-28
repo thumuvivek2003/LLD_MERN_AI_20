@@ -1,6 +1,6 @@
 import cx from '../../utils/cx.js';
 
-export function Toggle({ checked = false, onChange, disabled = false, size = 'md', label }) {
+export function Toggle({ checked = false, onChange, disabled = false, size = 'md', label, ...rest }) {
   const dims =
     size === 'sm' ? { track: 'h-4 w-7', knob: 'h-3 w-3', shift: 'translate-x-3' } : { track: 'h-5 w-9', knob: 'h-4 w-4', shift: 'translate-x-4' };
   return (
@@ -11,6 +11,7 @@ export function Toggle({ checked = false, onChange, disabled = false, size = 'md
       aria-label={label}
       disabled={disabled}
       onClick={() => onChange?.(!checked)}
+      {...rest}
       className={cx(
         'relative inline-flex shrink-0 items-center rounded-full transition focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/40',
         dims.track,

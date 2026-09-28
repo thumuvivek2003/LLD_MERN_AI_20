@@ -36,7 +36,10 @@ export function JobList({ jobs = [], loading, error, onRetry, onRun, busyId }) {
             <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-slate-50 text-slate-500">
               <BriefcaseBusiness size={15} />
             </span>
-            <div className="min-w-0 flex-1">
+            {/* A floor on the name keeps it readable inside the narrow dashboard
+                panel — without it the fixed-width progress/status items crush
+                this column to a single character before anything wraps. */}
+            <div className="min-w-[9rem] flex-1">
               <p className="truncate text-sm font-semibold text-slate-800">{job.name}</p>
               {job.detail && <p className="truncate text-[11px] text-slate-400">{job.detail}</p>}
             </div>
