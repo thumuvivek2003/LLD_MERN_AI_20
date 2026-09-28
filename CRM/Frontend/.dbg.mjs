@@ -1,0 +1,14 @@
+import { chromium } from 'playwright-core';
+const b = await chromium.launch({ channel: 'chrome', headless: true });
+const c = await b.newContext({ viewport: { width: 1440, height: 950 } });
+await c.addInitScript(([k,v])=>localStorage.setItem(k,v), ['metaforce.userId','u_sales']);
+const p = await c.newPage();
+p.on('pageerror', e => console.log('PAGEERROR', String(e)));
+p.on('console', m => { if (m.type()==='error') console.log('CONSOLE', m.text()); });
+p.on('response', r => { if (r.status()>=400) console.log('HTTP', r.status(), r.url()); });
+const rid = process.argv[2];
+await p.goto(`http://localhost:5173/business/objects/customer/records/${rid}`, { waitUntil:'networkidle' });
+await p.waitForTimeout(2000);
+console.log('--- body ---');
+console.log((await p.locator('body').innerText()).slice(0, 900));
+await b.close();
