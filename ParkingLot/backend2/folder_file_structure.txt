@@ -1,0 +1,110 @@
+backend/
+│
+├── src/
+│   │
+│   ├── config/
+│   │   ├── db.config.js
+│   │   ├── app.config.js
+│   │   └── constants.js
+│   │
+│   ├── enums/
+│   │   ├── VehicleType.js
+│   │   ├── SlotStatus.js
+│   │   ├── TicketStatus.js
+│   │   ├── PaymentStatus.js
+│   │   └── UserRole.js
+│   │
+│   ├── entities/
+│   │   ├── ParkingLot.js
+│   │   ├── ParkingFloor.js
+│   │   ├── ParkingSlot.js
+│   │   ├── Ticket.js
+│   │   ├── Vehicle.js
+│   │   ├── Payment.js
+│   │   └── User.js
+│   │
+│   ├── states/
+│   │   └── slot/
+│   │       ├── SlotState.js
+│   │       ├── AvailableState.js
+│   │       ├── OccupiedState.js
+│   │       └── MaintenanceState.js
+│   │
+│   ├── strategies/
+│   │   │
+│   │   ├── pricing/
+│   │   │   ├── PricingStrategy.js
+│   │   │   ├── WeekdayPricingStrategy.js
+│   │   │   ├── WeekendPricingStrategy.js
+│   │   │   └── FlatPricingStrategy.js
+│   │   │
+│   │   └── allocation/
+│   │       ├── SlotAllocationStrategy.js
+│   │       ├── NearestSlotStrategy.js
+│   │       ├── FirstAvailableStrategy.js
+│   │       └── RandomSlotStrategy.js
+│   │
+│   ├── factories/
+│   │   ├── VehicleFactory.js
+│   │   └── StrategyFactory.js
+│   │
+│   ├── repositories/
+│   │   ├── ParkingLotRepository.js
+│   │   ├── ParkingSlotRepository.js
+│   │   ├── TicketRepository.js
+│   │   ├── UserRepository.js
+│   │   └── PaymentRepository.js
+│   │
+│   ├── services/
+│   │   ├── AuthService.js
+│   │   ├── EntryService.js
+│   │   ├── ExitService.js
+│   │   ├── SlotService.js
+│   │   ├── PricingService.js
+│   │   ├── TicketService.js
+│   │   ├── ParkingLotService.js
+│   │   └── AdminService.js
+│   │
+│   ├── controllers/
+│   │   ├── AuthController.js
+│   │   ├── EntryController.js
+│   │   ├── ExitController.js
+│   │   ├── ParkingLotController.js
+│   │   ├── SlotController.js
+│   │   └── AdminController.js
+│   │
+│   ├── routes/
+│   │   ├── auth.routes.js
+│   │   ├── entry.routes.js
+│   │   ├── exit.routes.js
+│   │   ├── parking.routes.js
+│   │   ├── slot.routes.js
+│   │   └── admin.routes.js
+│   │
+│   ├── middlewares/
+│   │   ├── auth.middleware.js
+│   │   ├── role.middleware.js
+│   │   ├── error.middleware.js
+│   │   └── validate.middleware.js
+│   │
+│   ├── validators/
+│   │   ├── entry.validator.js
+│   │   ├── auth.validator.js
+│   │   └── parking.validator.js
+│   │
+│   ├── utils/
+│   │   ├── TicketIdGenerator.js
+│   │   ├── DateTimeHelper.js
+│   │   ├── FareCalculator.js
+│   │   └── Logger.js
+│   │
+│   ├── database/
+│   │   ├── models/
+│   │   ├── migrations/
+│   │   └── seeders/
+│   │
+│   ├── app.js
+│   └── server.js
+│
+├── package.json
+└── .env

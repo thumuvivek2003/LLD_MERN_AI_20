@@ -1,0 +1,168 @@
+parking-lot-backend/
+│
+├── src/
+│
+│   ├── config/
+│   │    ├── db.config.js
+│   │    ├── server.config.js
+│   │    └── constants.js
+│   │
+│   ├── modules/
+│   │
+│   │    ├── auth/
+│   │    │
+│   │    │    ├── controllers/
+│   │    │    │     └── auth.controller.js
+│   │    │    │
+│   │    │    ├── services/
+│   │    │    │     └── auth.service.js
+│   │    │    │
+│   │    │    ├── routes/
+│   │    │    │     └── auth.routes.js
+│   │    │    │
+│   │    │    ├── validators/
+│   │    │    │     └── auth.validator.js
+│   │    │    │
+│   │    │    ├── middlewares/
+│   │    │    │     └── auth.middleware.js
+│   │    │    │
+│   │    │    └── models/
+│   │    │          └── user.model.js
+│   │
+│   │
+│   │    ├── parking/
+│   │    │
+│   │    │    ├── controllers/
+│   │    │    │
+│   │    │    │     ├── entry.controller.js
+│   │    │    │     ├── exit.controller.js
+│   │    │    │     ├── parking-lot.controller.js
+│   │    │    │     ├── floor.controller.js
+│   │    │    │     ├── slot.controller.js
+│   │    │    │     └── pricing.controller.js
+│   │    │    │
+│   │    │    ├── services/
+│   │    │    │
+│   │    │    │     ├── entry.service.js
+│   │    │    │     ├── exit.service.js
+│   │    │    │     ├── ticket.service.js
+│   │    │    │     ├── slot.service.js
+│   │    │    │     ├── parking-lot.service.js
+│   │    │    │     ├── pricing.service.js
+│   │    │    │     └── payment.service.js
+│   │    │    │
+│   │    │    ├── routes/
+│   │    │    │
+│   │    │    │     ├── entry.routes.js
+│   │    │    │     ├── exit.routes.js
+│   │    │    │     ├── parking-lot.routes.js
+│   │    │    │     ├── slot.routes.js
+│   │    │    │     └── pricing.routes.js
+│   │    │    │
+│   │    │    ├── models/
+│   │    │    │
+│   │    │    │     ├── parking-lot.model.js
+│   │    │    │     ├── floor.model.js
+│   │    │    │     ├── slot.model.js
+│   │    │    │     ├── ticket.model.js
+│   │    │    │     ├── payment.model.js
+│   │    │    │     └── vehicle.model.js
+│   │    │    │
+│   │    │    ├── repositories/
+│   │    │    │
+│   │    │    │     ├── slot.repository.js
+│   │    │    │     ├── ticket.repository.js
+│   │    │    │     ├── parking-lot.repository.js
+│   │    │    │     └── payment.repository.js
+│   │    │    │
+│   │    │    ├── strategies/
+│   │    │    │
+│   │    │    │     ├── pricing/
+│   │    │    │     │
+│   │    │    │     │     ├── pricing-strategy.js
+│   │    │    │     │     ├── weekday-pricing.strategy.js
+│   │    │    │     │     ├── weekend-pricing.strategy.js
+│   │    │    │     │     ├── flat-pricing.strategy.js
+│   │    │    │     │     └── hourly-pricing.strategy.js
+│   │    │    │     │
+│   │    │    │     └── allocation/
+│   │    │    │
+│   │    │    │           ├── slot-allocation.strategy.js
+│   │    │    │           ├── nearest-slot.strategy.js
+│   │    │    │           ├── random-slot.strategy.js
+│   │    │    │           └── first-available.strategy.js
+│   │    │    │
+│   │    │    ├── states/
+│   │    │    │
+│   │    │    │     ├── slot-state.js
+│   │    │    │     ├── available.state.js
+│   │    │    │     ├── occupied.state.js
+│   │    │    │     └── maintenance.state.js
+│   │    │    │
+│   │    │    ├── factories/
+│   │    │    │
+│   │    │    │     ├── vehicle.factory.js
+│   │    │    │     └── strategy.factory.js
+│   │    │    │
+│   │    │    ├── validators/
+│   │    │    │
+│   │    │    │     ├── entry.validator.js
+│   │    │    │     ├── exit.validator.js
+│   │    │    │     └── slot.validator.js
+│   │    │    │
+│   │    │    ├── mappers/
+│   │    │    │
+│   │    │    │     ├── ticket.mapper.js
+│   │    │    │     └── slot.mapper.js
+│   │    │    │
+│   │    │    ├── dtos/
+│   │    │    │
+│   │    │    │     ├── create-ticket.dto.js
+│   │    │    │     └── payment.dto.js
+│   │    │    │
+│   │    │    └── utils/
+│   │    │          ├── fare-calculator.js
+│   │    │          ├── time.util.js
+│   │    │          └── ticket-generator.js
+│   │
+│   │
+│   │
+│   ├── shared/
+│   │
+│   │    ├── enums/
+│   │    │
+│   │    │     ├── user-role.enum.js
+│   │    │     ├── slot-status.enum.js
+│   │    │     ├── vehicle-type.enum.js
+│   │    │     ├── payment-status.enum.js
+│   │    │     └── ticket-status.enum.js
+│   │    │
+│   │    ├── middlewares/
+│   │    │
+│   │    │     ├── error.middleware.js
+│   │    │     ├── logger.middleware.js
+│   │    │     └── role.middleware.js
+│   │    │
+│   │    ├── helpers/
+│   │    │
+│   │    │     ├── api-response.js
+│   │    │     ├── pagination.js
+│   │    │     └── async-handler.js
+│   │    │
+│   │    ├── exceptions/
+│   │    │
+│   │    │     ├── app-error.js
+│   │    │     ├── validation-error.js
+│   │    │     └── not-found-error.js
+│   │    │
+│   │    └── database/
+│   │          └── base.repository.js
+│   │
+│   │
+│   ├── app.js
+│   └── server.js
+│
+│
+├── .env
+├── package.json
+└── README.md

@@ -1,0 +1,125 @@
+frontend/
+│
+├── public/
+│
+├── src/
+│   │
+│   ├── app/
+│   │   ├── router/
+│   │   │   ├── AppRouter.jsx
+│   │   │   ├── ProtectedRoute.jsx
+│   │   │   └── RoleBasedRoute.jsx
+│   │   │
+│   │   ├── providers/
+│   │   │   ├── AuthProvider.jsx
+│   │   │   ├── ThemeProvider.jsx
+│   │   │   └── QueryProvider.jsx
+│   │   │
+│   │   └── store/
+│   │       └── auth.store.js
+│   │
+│   ├── pages/
+│   │   │
+│   │   ├── auth/
+│   │   │   └── LoginPage.jsx
+│   │   │
+│   │   ├── admin/
+│   │   │   ├── DashboardPage.jsx
+│   │   │   ├── ParkingLotsPage.jsx
+│   │   │   ├── FloorsPage.jsx
+│   │   │   ├── SlotsPage.jsx
+│   │   │   ├── UsersPage.jsx
+│   │   │   ├── PricingStrategiesPage.jsx
+│   │   │   └── PaymentsPage.jsx
+│   │   │
+│   │   ├── entry/
+│   │   │   ├── NewEntryPage.jsx
+│   │   │   ├── AllocateSlotPage.jsx
+│   │   │   └── TicketGeneratedPage.jsx
+│   │   │
+│   │   └── exit/
+│   │       ├── SearchTicketPage.jsx
+│   │       ├── TicketFarePage.jsx
+│   │       └── PaymentSuccessPage.jsx
+│   │
+│   ├── features/
+│   │   │
+│   │   ├── auth/
+│   │   │   ├── api/
+│   │   │   ├── hooks/
+│   │   │   ├── services/
+│   │   │   ├── components/
+│   │   │   └── utils/
+│   │   │
+│   │   ├── parking-lot/
+│   │   │   ├── api/
+│   │   │   ├── hooks/
+│   │   │   ├── services/
+│   │   │   ├── components/
+│   │   │   ├── state/
+│   │   │   └── utils/
+│   │   │
+│   │   ├── slots/
+│   │   ├── tickets/
+│   │   ├── pricing/
+│   │   └── payments/
+│   │
+│   ├── components/
+│   │   │
+│   │   ├── ui/
+│   │   │   ├── Button.jsx
+│   │   │   ├── Input.jsx
+│   │   │   ├── Modal.jsx
+│   │   │   ├── Table.jsx
+│   │   │   ├── Card.jsx
+│   │   │   ├── Badge.jsx
+│   │   │   └── Loader.jsx
+│   │   │
+│   │   ├── layout/
+│   │   │   ├── Sidebar.jsx
+│   │   │   ├── Header.jsx
+│   │   │   ├── DashboardLayout.jsx
+│   │   │   └── PageContainer.jsx
+│   │   │
+│   │   └── shared/
+│   │       ├── VehicleCard.jsx
+│   │       ├── SlotCard.jsx
+│   │       ├── TicketCard.jsx
+│   │       └── PaymentCard.jsx
+│   │
+│   ├── hooks/
+│   │   ├── useAuth.js
+│   │   ├── useModal.js
+│   │   ├── useDebounce.js
+│   │   └── useRole.js
+│   │
+│   ├── services/
+│   │   ├── apiClient.js
+│   │   ├── auth.service.js
+│   │   ├── parking.service.js
+│   │   └── payment.service.js
+│   │
+│   ├── contexts/
+│   │   ├── AuthContext.jsx
+│   │   └── ThemeContext.jsx
+│   │
+│   ├── constants/
+│   │   ├── roles.js
+│   │   ├── routes.js
+│   │   └── statuses.js
+│   │
+│   ├── utils/
+│   │   ├── formatCurrency.js
+│   │   ├── formatDate.js
+│   │   ├── generateColor.js
+│   │   └── validators.js
+│   │
+│   ├── styles/
+│   │   ├── globals.css
+│   │   └── variables.css
+│   │
+│   ├── App.jsx
+│   └── main.jsx
+│
+├── package.json
+└── vite.config.js
