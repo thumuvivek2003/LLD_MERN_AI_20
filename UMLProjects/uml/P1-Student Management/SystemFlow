@@ -1,0 +1,252 @@
+# 📚 Student Management System – Complete Diagram Set
+
+---
+
+## 1️⃣ System Flow (Overall Process)
+
+```mermaid
+flowchart TD
+    A[Login] --> B{Valid User?}
+
+    B -->|No| C[Show Error]
+    B -->|Yes| D[Dashboard]
+
+    D --> E[Manage Students]
+    D --> F[Manage Courses]
+    D --> G[Enter Marks]
+    D --> H[Manage Attendance]
+
+    E --> E1[Add / View / Update / Delete Student]
+    F --> F1[Add / View / Update / Delete Course]
+    G --> G1[Add / View Marks]
+    H --> H1[Mark / View Attendance]
+```
+
+---
+
+## 2️⃣ Use Case Diagram (UML)
+
+```mermaid
+flowchart LR
+
+    Admin --> StudentCRUD
+    Admin --> CourseCRUD
+    Admin --> MarksEntry
+    Admin --> AttendanceManage
+
+    Teacher --> MarksEntry
+    Teacher --> AttendanceManage
+
+    Student --> ViewMarks
+    Student --> ViewAttendance
+
+    StudentCRUD((Manage Students))
+    CourseCRUD((Manage Courses))
+    MarksEntry((Enter Marks))
+    AttendanceManage((Attendance))
+    ViewMarks((View Marks))
+    ViewAttendance((View Attendance))
+```
+
+---
+
+## 3️⃣ Class Diagram (UML – Core Entities)
+
+```mermaid
+classDiagram
+    class Student {
+        +string id
+        +string name
+        +string email
+        +string rollNumber
+    }
+
+    class Course {
+        +string id
+        +string courseName
+        +string code
+    }
+
+    class Marks {
+        +string id
+        +int score
+    }
+
+    class Attendance {
+        +string id
+        +date date
+        +boolean present
+    }
+
+    Student "1" --> "many" Marks
+    Student "1" --> "many" Attendance
+    Course "1" --> "many" Marks
+    Course "1" --> "many" Attendance
+```
+
+---
+
+## 4️⃣ ER Diagram (Database Model)
+
+```mermaid
+erDiagram
+    STUDENTS {
+        string _id PK
+        string name
+        string email
+        string roll_number
+    }
+
+    COURSES {
+        string _id PK
+        string course_name
+        string course_code
+    }
+
+    MARKS {
+        string _id PK
+        string student_id FK
+        string course_id FK
+        int score
+    }
+
+    ATTENDANCE {
+        string _id PK
+        string student_id FK
+        string course_id FK
+        date date
+        boolean present
+    }
+
+    STUDENTS ||--o{ MARKS : receives
+    COURSES ||--o{ MARKS : has
+
+    STUDENTS ||--o{ ATTENDANCE : attends
+    COURSES ||--o{ ATTENDANCE : records
+```
+
+---
+
+## 5️⃣ Backend Component Diagram (CRUD Architecture)
+
+```mermaid
+flowchart LR
+    UI --> API
+
+    API --> StudentController
+    API --> CourseController
+    API --> MarksController
+    API --> AttendanceController
+
+    StudentController --> StudentService
+    CourseController --> CourseService
+    MarksController --> MarksService
+    AttendanceController --> AttendanceService
+
+    StudentService --> DB[(MongoDB)]
+    CourseService --> DB
+    MarksService --> DB
+    AttendanceService --> DB
+```
+
+---
+
+## 6️⃣ Backend Sequence Diagram (Add Marks Flow)
+
+```mermaid
+sequenceDiagram
+    participant T as Teacher
+    participant UI as Frontend
+    participant API as Backend API
+    participant DB as Database
+
+    T->>UI: Enter student marks
+    UI->>API: POST /marks
+    API->>DB: Save marks
+    DB-->>API: Success
+    API-->>UI: Response OK
+    UI-->>T: Show success message
+```
+
+---
+
+## 7️⃣ Frontend Component Architecture
+
+```mermaid
+flowchart TB
+    App --> Navbar
+    App --> Sidebar
+
+    Sidebar --> StudentPage
+    Sidebar --> CoursePage
+    Sidebar --> MarksPage
+    Sidebar --> AttendancePage
+
+    StudentPage --> StudentList
+    CoursePage --> CourseList
+
+    MarksPage --> MarksForm
+    AttendancePage --> AttendanceTable
+```
+
+---
+
+## 8️⃣ Frontend Routing Diagram
+
+```mermaid
+flowchart LR
+    root["/"] --> LoginPage
+    dashboard["/dashboard"] --> Dashboard
+    students["/students"] --> StudentPage
+    courses["/courses"] --> CoursePage
+    marks["/marks"] --> MarksPage
+    attendance["/attendance"] --> AttendancePage
+```
+
+---
+
+## 9️⃣ API Flow Diagram (Frontend ↔ Backend)
+
+```mermaid
+flowchart LR
+    UI -->|REST| StudentAPI
+    UI -->|REST| CourseAPI
+    UI -->|REST| MarksAPI
+    UI -->|REST| AttendanceAPI
+
+    StudentAPI --> Backend
+    CourseAPI --> Backend
+    MarksAPI --> Backend
+    AttendanceAPI --> Backend
+```
+
+---
+
+## 🔟 Frontend State Flow (Marks Entry Example)
+
+```mermaid
+stateDiagram-v2
+    [*] --> Idle
+    Idle --> Editing : Teacher inputs marks
+    Editing --> Submitting : Click submit
+    Submitting --> Success : API OK
+    Submitting --> Error : API Failed
+    Error --> Editing : Retry
+    Success --> Idle : Reset form
+```
+
+---
+
+## ✅ You now have a complete design for:
+
+| Area                      | Covered |
+| ------------------------- | ------- |
+| UML (Class, Use Case)     | ✅       |
+| ER Modeling               | ✅       |
+| CRUD Backend Architecture | ✅       |
+| Frontend Architecture     | ✅       |
+| Routing                   | ✅       |
+| State handling            | ✅       |
+| API Integration           | ✅       |
+
+---
